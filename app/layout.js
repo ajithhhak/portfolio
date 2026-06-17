@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import PCBBackground from '@/components/PCBBackground';
 
 export const metadata = {
-  title: 'Ajith Kumar Choudoju | Robotics, Embedded Systems & AI',
+  title: 'Ajith Kumar Choudoju | Robotics, VLSI, IoT & AI',
   description: 'Electronics & Software Engineer Portfolio',
 };
 
