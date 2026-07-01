@@ -4,6 +4,28 @@ import ImageCarousel from '@/components/ImageCarousel';
 
 const hardwareProjects = [
   {
+    id: 'hw3',
+    title: 'IoT Smart Home Automation System',
+    desc: 'A comprehensive IoT-based smart home automation system designed to provide secure remote control of household appliances from anywhere over the internet. The system utilizes an ESP8266 NodeMCU connected to Google Firebase Realtime Database for real-time communication.',
+    stack: ['ESP8266', 'Arduino C++', 'Firebase RTDB', 'Firebase Auth', 'Arduino IDE', 'SSD1306 OLED', 'I²C', 'Wi-Fi', 'Relay Module', 'GitHub'],
+    images: ['/auto/1.jpg', '/auto/2.jpg', '/auto/3.jpg', '/auto/4.jpg'],
+    modalBody: `<p>A comprehensive IoT-based smart home automation system designed to provide secure remote control of household appliances from anywhere over the internet. The system utilizes an ESP8266 NodeMCU connected to Google Firebase Realtime Database for real-time communication, while an SSD1306 OLED display provides live system diagnostics including Wi-Fi status, cloud connectivity, relay states, signal strength, and device health.</p>
+      <p>The architecture follows a cloud-based client-server model where Firebase acts as the central communication layer between the user interface and the embedded controller. The NodeMCU continuously synchronizes relay states with the cloud, ensuring real-time appliance control, automatic Wi-Fi recovery, and reliable operation even after temporary network interruptions.</p>
+      <br><p><strong style="color:#00ff88">KEY FEATURES & ARCHITECTURE:</strong></p>
+      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:2">
+        <li>ESP8266 NodeMCU-based IoT controller with integrated Wi-Fi connectivity</li>
+        <li>Google Firebase Realtime Database for real-time cloud synchronization</li>
+        <li>4-channel Active-LOW relay module supporting independent appliance control</li>
+        <li>SSD1306 OLED display for Wi-Fi status, Firebase connection, relay states, RSSI, and system diagnostics</li>
+        <li>Automatic Wi-Fi reconnection and Firebase recovery for uninterrupted operation</li>
+        <li>Cloud heartbeat monitoring with device uptime, IP address, and signal strength reporting</li>
+        <li>Active-LOW relay control logic ensuring safe startup with all relays initialized in the OFF state</li>
+        <li>Modular architecture allowing future integration of PIR sensors, DHT22, energy monitoring, scheduling, and security features</li>
+        <li>OTA (Over-the-Air) firmware update support for wireless software deployment</li>
+        <li>Expandable ecosystem compatible with Google Assistant, mobile applications, and voice-controlled automation</li>
+      </ul>`
+  },
+  {
     id: 'hw1',
     title: 'Multi-Robot Warehouse Navigation System [IN DEVELOPMENT]',
     desc: 'Currently in development. Designing a scalable warehouse automation robot capable of autonomous navigation. It utilizes RFID-based localization, an IMU for orientation tracking, ultrasonic sensors for dynamic obstacle detection, and wheel encoders for precise odometry.',
