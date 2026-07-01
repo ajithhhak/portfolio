@@ -46,18 +46,25 @@ const hardwareProjects = [
   {
     id: 'hw2',
     title: 'Autonomous Secure Delivery Bot',
-    desc: 'An autonomous delivery robot designed for secure last-mile package transportation. It integrates biometric authentication and embedded control systems to ensure only the intended recipient can access the cargo.',
+    desc: 'A secure autonomous delivery robot developed to automate package transportation in warehouses, campuses, and controlled-access environments. The system is designed to reduce manual intervention while ensuring that delivered items remain accessible only to authorized recipients.',
     stack: ['Arduino', 'Fingerprint Sensor', 'Bluetooth Module', 'Robotics', 'C++'],
     images: ['/1_autobot.jpeg', '/2_autobot.jpeg', '/3_autobot.jpeg'],
-    modalBody: `<p>Designed and developed as part of Team HackForge during Rampage v2.6, securing 3rd place in the national-level hackathon. The system was prototyped from scratch within a grueling 24-hour time constraint.</p>
-      <p>The bot addresses the growing issue of package theft ("porch piracy") by ensuring the cargo compartment remains locked until the verified recipient scans their fingerprint. The chassis and control electronics were custom assembled to support the secure payload.</p>
-      <br><p><strong style="color:#00ff88">Key Features & Achievements:</strong></p>
+    modalBody: `<p>A secure autonomous delivery robot developed to automate package transportation in warehouses, campuses, and controlled-access environments. The system is designed to reduce manual intervention while ensuring that delivered items remain accessible only to authorized recipients. By integrating autonomous navigation, biometric authentication, and wireless communication into a single embedded platform, the robot provides an efficient and secure solution for last-mile indoor delivery.</p>
+      <p>The robot continuously navigates its environment using ultrasonic sensors for obstacle detection and avoidance, enabling safe movement through dynamic indoor spaces. An MPU6050 inertial measurement unit assists with orientation tracking and directional stability, while a differential drive mechanism powered by dual DC geared motors allows precise motion control. A custom navigation algorithm processes real-time sensor inputs to make movement decisions and safely reach the destination.</p>
+      <p>Security is achieved through an integrated fingerprint authentication system that electronically locks the storage compartment until a registered user is verified. This prevents unauthorized access and ensures that only the intended recipient can retrieve the delivered package. For maintenance, testing, and emergency situations, the robot also supports Bluetooth-based manual control, allowing operators to override autonomous navigation when required.</p>
+      <p>The project follows a modular embedded systems architecture, making it easy to integrate additional technologies such as RFID-based localization, computer vision, AI-powered path planning, cloud monitoring, GPS navigation, and fleet management. The design demonstrates the practical integration of robotics, embedded systems, IoT, and access control into a scalable autonomous delivery platform.</p>
+      <br><p><strong style="color:#00ff88">KEY FEATURES & ARCHITECTURE:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:2">
-        <li>Integrated fingerprint biometric module for secure user verification to authorize package access</li>
-        <li>Biometric vehicle activation ensuring secure delivery and theft prevention</li>
-        <li>Custom Bluetooth-based manual override functionality via a mobile app for fail-safe operation</li>
-        <li>Rapid hardware-software prototyping, circuit design, and assembly under strict time constraints</li>
-        <li>Awarded 3rd place out of 50+ competing teams nationwide</li>
+        <li>Autonomous indoor navigation using ultrasonic sensor-based obstacle detection and avoidance</li>
+        <li>MPU6050 IMU for orientation tracking and improved navigation stability</li>
+        <li>Fingerprint authentication for secure package access and recipient verification</li>
+        <li>Electronic locking mechanism to prevent unauthorized access</li>
+        <li>Bluetooth manual override for maintenance, testing, and emergency operation</li>
+        <li>Differential drive system powered by L298N motor driver and dual DC geared motors</li>
+        <li>Real-time embedded decision-making using continuous sensor feedback</li>
+        <li>Modular hardware architecture supporting future AI, RFID, GPS, and computer vision integration</li>
+        <li>Battery-powered mobile robotic platform designed for continuous autonomous operation</li>
+        <li>Scalable solution suitable for smart warehouses, hospitals, campuses, and industrial logistics</li>
       </ul>`
   }
 ];
