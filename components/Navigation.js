@@ -11,7 +11,7 @@ export default function Navigation() {
   return (
     <nav>
       <Link href="/home" className="nav-logo">
-        &lt;<span>Ajith Kumar</span>/&gt;
+        <span>Ajith Kumar</span>
       </Link>
       <ul className="nav-links">
         <li>

@@ -46,7 +46,7 @@ export default function Contact() {
       </div>
       
       <footer style={{ marginTop: '80px', paddingBottom: '20px' }}>
-        &lt;/&gt; &nbsp; BUILT WITH PASSION &amp; ELECTRONS &nbsp; | &nbsp; &copy; 2026 Ajith Kumar
+        BUILT WITH PASSION &amp; ELECTRONS &nbsp; | &nbsp; &copy; 2026 Ajith Kumar
       </footer>
     </section>
   );
