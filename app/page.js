@@ -426,8 +426,8 @@ export default function Home() {
             </div>
 
             <div>
-              <div style={{ padding: '0.85rem 0', borderTop: '1px solid rgba(225,29,72,0.25)', marginBottom: '1.25rem' }}>
-                <div style={{ fontSize: '0.72rem', color: '#ff2442', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              <div style={{ padding: '0.85rem 0', borderTop: '1px solid var(--border-accent)', marginBottom: '1.25rem' }}>
+                <div style={{ fontSize: '0.72rem', color: 'var(--accent-bright)', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                   Leadership &amp; Experience
                 </div>
                 <div style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600', marginTop: '0.25rem' }}>
@@ -524,7 +524,7 @@ export default function Home() {
 
         {/* Bottom bar */}
         <div className="footer-bottom-bar">
-          <div>BUILT WITH PASSION &amp; ELECTRONS &nbsp;|&nbsp; © 2026 AJITH KUMAR CHOUDOJU</div>
+          <div>© 2026 AJITH KUMAR CHOUDOJU</div>
           <div>BASED IN HYDERABAD, INDIA</div>
         </div>
       </footer>
@@ -567,7 +567,7 @@ export default function Home() {
             )}
 
             {modalData.postUrl && (
-              <div style={{ padding: '0.85rem 2rem', background: 'rgba(225, 29, 72, 0.08)', borderBottom: '1px solid rgba(225, 29, 72, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div style={{ padding: '0.85rem 2rem', background: 'var(--accent-tint)', borderBottom: '1px solid var(--border-accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <span style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600' }}>
                   Live Demo &amp; Discussion on LinkedIn:
                 </span>

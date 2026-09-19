@@ -45,7 +45,7 @@ export default function Navigation() {
 
           <a href="#contact" className="nav-status-pill">
             <span className="status-beacon"></span>
-            <span>Available for Projects +</span>
+            <span>Available for Projects</span>
           </a>
         </div>
       </div>
