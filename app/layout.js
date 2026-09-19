@@ -1,20 +1,20 @@
 import './globals.css';
 import './modal.css';
 import Navigation from '@/components/Navigation';
-import PCBBackground from '@/components/PCBBackground';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export const metadata = {
-  title: 'Ajith Kumar Choudoju | Robotics, VLSI, IoT & AI',
-  description: 'Electronics & Software Engineer Portfolio',
+  title: 'Ajith Kumar Choudoju | Electronics Engineer',
+  description: 'Electronics & Communication Engineering student with hands-on expertise in robotics, automation, embedded systems, and intelligent software solutions.',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <PCBBackground />
+        <SmoothScroll />
         <Navigation />
-        {children}
+        <main>{children}</main>
       </body>
     </html>
   );
