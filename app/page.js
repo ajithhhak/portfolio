@@ -129,8 +129,8 @@ const allProjects = [
     title: 'Smart Home — 4-Channel Relay PCB',
     meta: 'Altium Designer / 4-Layer PCB / ESP32 / mmWave Radar / Isolated AC-DC',
     gitUrl: 'https://github.com/ajithhhak/HOME-AUTOMATION-4-CHANNEL-RELAY',
-    thumbnail: '/auto/1.jpg',
-    images: ['/auto/1.jpg', '/auto/2.jpg', '/auto/3.jpg', '/auto/4.jpg'],
+    thumbnail: '/pcb/pcb_1.jpg',
+    images: ['/pcb/pcb_1.jpg', '/pcb/pcb_2.jpg', '/pcb/pcb_3.jpg', '/pcb/pcb_4.jpg', '/pcb/pcb_5.jpg', '/pcb/pcb_6.jpg', '/pcb/pcb_7.jpg'],
     stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
     modalBody: `<p>A fully custom-designed <strong>4-layer PCB</strong> for a retrofit smart home automation controller — engineered from first principles in <strong>Altium Designer</strong>, taking the project from a breadboard prototype all the way to production-ready Gerber files.</p>
       <p>The board is designed to fit into existing electrical installations without requiring rewiring, while adding smart control, presence detection, and environmental sensing capabilities on top of traditional wall switches.</p>
