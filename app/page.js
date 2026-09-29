@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from 'react';
 import ImageCarousel from '@/components/ImageCarousel';
 
@@ -132,35 +132,121 @@ const allProjects = [
     thumbnail: '/pcb/pcb_1.jpg',
     images: ['/pcb/pcb_1.jpg', '/pcb/pcb_2.jpg', '/pcb/pcb_3.jpg', '/pcb/pcb_4.jpg', '/pcb/pcb_5.jpg', '/pcb/pcb_6.jpg', '/pcb/pcb_7.jpg'],
     stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
-    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid #ff2442;padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation — ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
-      <p>A fully custom-designed <strong>4-layer PCB</strong> for a retrofit smart home automation controller — engineered from first principles in <strong>Altium Designer</strong>, taking the project from a breadboard prototype all the way to production-ready Gerber files.</p>
-      <p>The board is designed to fit into existing electrical installations without requiring rewiring, while adding smart control, presence detection, and environmental sensing capabilities on top of traditional wall switches.</p>
+    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid #ff2442;padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation &mdash; ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
 
-      <br><p><strong style="color:#ff2442">PCB ARCHITECTURE & STACKUP:</strong></p>
+      <p>This project began as a hobbyist smart home build and has evolved into a fully custom-designed, production-oriented PCB system. Developed end-to-end &mdash; from system architecture and component selection, through schematic capture, all the way to a complete 4-layer PCB layout in <strong>Altium Designer</strong>.</p>
+
+      <br><p><strong style="color:#ff2442">&#10024; FEATURES:</strong></p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa;width:42%">&#9889; Retrofit-friendly</td><td style="padding:0.4rem 0.6rem">Works with existing electrical installations</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128268; Relay control</td><td style="padding:0.4rem 0.6rem">Controls lights, fans, and appliances</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#127917; Physical switches</td><td style="padding:0.4rem 0.6rem">Wall switches remain fully functional</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128100; Presence detection</td><td style="padding:0.4rem 0.6rem">mmWave radar (HLK-LD2410C)</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#127777; Environmental sensing</td><td style="padding:0.4rem 0.6rem">Temperature &amp; humidity (SHT31)</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128694; Motion detection</td><td style="padding:0.4rem 0.6rem">PIR sensor input</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128421; Local display</td><td style="padding:0.4rem 0.6rem">OLED status screen</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128225; Wireless</td><td style="padding:0.4rem 0.6rem">ESP32-based Wi-Fi connectivity</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#9729; IoT ready</td><td style="padding:0.4rem 0.6rem">Dashboard &amp; cloud integration capable</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128737; Isolation</td><td style="padding:0.4rem 0.6rem">Dedicated mains and SELV separation</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128267; On-board PSU</td><td style="padding:0.4rem 0.6rem">Isolated AC-to-DC power supply</td></tr>
+          <tr><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128208; 4-Layer PCB</td><td style="padding:0.4rem 0.6rem">Custom stackup with production-ready design</td></tr>
+        </tbody>
+      </table>
+
+      <br><p><strong style="color:#ff2442">&#129504; SYSTEM ARCHITECTURE:</strong></p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:1rem;font-size:0.7rem;line-height:1.6;overflow-x:auto;color:#d4d4d8;font-family:monospace">AC MAINS (230V)
+  |
+  Protection &amp; Filter
+  |
+HLK-10M05 (Isolated AC/DC)
+  | +5V
+3.3V Buck Regulator
+  | +3.3V
+  |
+ESP32 (Main Controller)
+  |------- ULN2803A -------- Relay 1~4 ---- Lights/Fans
+  |------- MCP23017 -------- Wall Switches (x6)
+  |------- LD2410C (UART) -- mmWave Presence
+  |------- PIR ------------- Motion
+  |------- SHT31 (I2C) ----- Temp &amp; Humidity
+  |------- OLED (I2C) ------ Local Display</pre>
+
+      <br><p><strong style="color:#ff2442">&#128299; HARDWARE:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>4-Layer Stack</strong> — L1: components &amp; signal routing / L2: solid GND pour / L3: power distribution / L4: low-voltage signals.</li>
-        <li><strong>Isolated AC/DC Supply</strong> — HLK-10M05 provides galvanic isolation between 230V mains and SELV control circuitry.</li>
-        <li><strong>Mains / SELV Separation</strong> — Physical isolation boundary enforced in layout with creepage and clearance rules set before routing began.</li>
-        <li><strong>Design Rules First</strong> — Clearance, track widths, and isolation constraints established upfront; DRC passed with minimal cleanup.</li>
+        <li><strong>ESP32-WROOM-32D</strong> &mdash; Main controller: Wi-Fi, relay switching, I&sup2;C / UART peripherals, and local automation logic.</li>
+        <li><strong>ULN2803A Relay Driver</strong> &mdash; Darlington array drives 4 relay coils with integrated flyback suppression, keeping coil currents off ESP32 GPIOs.</li>
+        <li><strong>MCP23017 GPIO Expander</strong> &mdash; I&sup2;C expander for up to 6 physical wall-switch inputs; fully <strong>interrupt-driven</strong> &mdash; no continuous polling.</li>
+        <li><strong>HLK-LD2410C mmWave Radar</strong> &mdash; UART-connected presence sensor with stationary target detection beyond a simple binary output.</li>
+        <li><strong>SHT31</strong> &mdash; High-accuracy I&sup2;C temperature and relative humidity sensor.</li>
+        <li><strong>PIR Sensor</strong> &mdash; Secondary motion detection channel for supplementary automation triggers.</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">KEY HARDWARE:</strong></p>
+      <br><p><strong style="color:#ff2442">&#128268; INTERFACES:</strong></p>
+      <p style="font-size:0.8rem;color:#a1a1aa;margin-bottom:0.25rem">I&sup2;C Bus</p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">ESP32 GPIO21 &gt; SDA
+ESP32 GPIO22 &gt; SCL
+Peripherals: MCP23017 | SHT31 | OLED Display</pre>
+      <p style="font-size:0.8rem;color:#a1a1aa;margin:0.75rem 0 0.25rem">LD2410C UART</p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">LD2410C TX &gt; ESP32 GPIO16 (RX)
+LD2410C RX &gt; ESP32 GPIO17 (TX)</pre>
+      <p style="font-size:0.8rem;color:#a1a1aa;margin:0.75rem 0 0.25rem">Relay Outputs</p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">ESP32 GPIO25 &gt; ULN2803A &gt; Relay 1
+ESP32 GPIO26 &gt; ULN2803A &gt; Relay 2
+ESP32 GPIO27 &gt; ULN2803A &gt; Relay 3
+ESP32 GPIO33 &gt; ULN2803A &gt; Relay 4</pre>
+
+      <br><p><strong style="color:#ff2442">&#127959; PCB LAYER STACKUP:</strong></p>
+      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
+        <thead><tr style="border-bottom:1px solid rgba(255,36,66,0.4)"><th style="padding:0.4rem 0.6rem;text-align:left;color:#ff2442;font-weight:700">Layer</th><th style="padding:0.4rem 0.6rem;text-align:left;color:#ff2442;font-weight:700">Function</th></tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L1 &mdash; Top</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Component placement, signal routing, mains routing</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L2</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Solid GND copper pour</td></tr>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L3</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Power distribution / low-voltage routing</td></tr>
+          <tr><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L4 &mdash; Bottom</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Low-voltage signal routing</td></tr>
+        </tbody>
+      </table>
+
+      <br><p><strong style="color:#ff2442">&#9889; POWER ARCHITECTURE:</strong></p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">230V AC &gt; Fuse &gt; MOV &gt; X2 Cap &gt; Common-Mode Filter
+  |
+HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
+  |
+3.3V Buck Converter &gt; +3.3V Rail</pre>
+      <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7;margin-top:0.5rem">Mains section is <strong style="color:#fff">electrically isolated</strong> from SELV circuitry. Low-voltage electronics share a common DC ground on the secondary side only.</p>
+
+      <br><p><strong style="color:#ff2442">&#127968; RETROFIT PHILOSOPHY:</strong></p>
+      <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7">Traditional wall-switch operation is preserved at all times. The controller adds on top:</p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>ESP32-WROOM-32D</strong> — Main controller for Wi-Fi, relay switching, I²C / UART peripherals, and local automation logic.</li>
-        <li><strong>ULN2803A Relay Driver</strong> — Darlington array drives 4 relay coils with integrated flyback suppression, keeping coil current off ESP32 GPIOs.</li>
-        <li><strong>MCP23017 GPIO Expander</strong> — I²C expander for up to 6 physical wall-switch inputs; fully interrupt-driven, no polling.</li>
-        <li><strong>HLK-LD2410C mmWave Radar</strong> — UART-connected presence sensor with stationary target detection beyond simple binary output.</li>
-        <li><strong>SHT31</strong> — High-accuracy I²C temperature and relative humidity sensor.</li>
-        <li><strong>PIR Sensor</strong> — Secondary motion detection channel for supplementary automation triggers.</li>
+        <li>Remote and voice control</li>
+        <li>Presence and occupancy-based automation</li>
+        <li>Environmental condition-based logic</li>
+        <li>Room-level scheduling and scenes</li>
+        <li>Future IoT platform integrations</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">DESIGN WORKFLOW:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>Component Selection</strong> — Each component validated against datasheets for electrical ratings, pin spacing, footprint dimensions, and availability.</li>
-        <li><strong>Custom Footprints</strong> — Several footprints created or verified manually against manufacturer mechanical drawings.</li>
-        <li><strong>Routing &amp; Copper Pour</strong> — Signal routing completed with solid ground planes and power distribution on inner layers.</li>
-        <li><strong>DRC &amp; Gerber Output</strong> — Full design rule check passed; production Gerber files generated and verified.</li>
-      </ul>`
+      <br><p><strong style="color:#ff2442">&#128295; DESIGN WORKFLOW:</strong></p>
+      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">Concept &gt; System Architecture &gt; Component Selection
+&gt; Schematic Capture &gt; Footprint Selection &amp; Creation
+&gt; PCB Stackup &amp; Design Rules &gt; Component Placement &gt; Routing
+&gt; Copper Pour &amp; Ground Planes &gt; DRC &amp; Clearance Verification
+&gt; Silkscreen Cleanup &gt; Final PCB Output &amp; Gerber Generation</pre>
+
+      <br><p><strong style="color:#ff2442">&#128679; CURRENT STATUS:</strong></p>
+      <p style="font-size:0.8rem;font-weight:700;color:#22c55e;margin-bottom:0.5rem">PCB Design &mdash; Complete</p>
+      <ul style="margin-top:0.25rem;padding-left:1.2rem;line-height:2;font-size:0.82rem">
+        <li style="color:#22c55e">&#9989; System architecture &amp; component selection</li>
+        <li style="color:#22c55e">&#9989; Schematic &amp; custom footprints</li>
+        <li style="color:#22c55e">&#9989; PCB stackup, routing &amp; copper pours</li>
+        <li style="color:#22c55e">&#9989; Mains/SELV isolation verified</li>
+        <li style="color:#22c55e">&#9989; DRC passed &amp; Gerber files generated</li>
+        <li style="color:#a1a1aa">&#9744; PCB fabrication &amp; assembly</li>
+        <li style="color:#a1a1aa">&#9744; Hardware bring-up &amp; firmware development</li>
+        <li style="color:#a1a1aa">&#9744; Sensor validation &amp; relay testing</li>
+        <li style="color:#a1a1aa">&#9744; Enclosure design &amp; long-term testing</li>
+      </ul>
+
+      <br><p style="font-size:0.79rem;color:#71717a;border-top:1px solid rgba(255,255,255,0.07);padding-top:1rem;line-height:1.7">&#9888;&#65039; <strong style="color:#facc15">Safety Notice:</strong> This project involves 230V AC mains voltage. Any work on the mains section must follow appropriate electrical safety procedures. This is a development project and should not be treated as a certified commercial product without full safety, EMC, and regulatory validation.</p>`
   }
 ];
 
