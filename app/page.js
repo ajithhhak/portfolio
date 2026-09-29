@@ -132,7 +132,8 @@ const allProjects = [
     thumbnail: '/pcb/pcb_1.jpg',
     images: ['/pcb/pcb_1.jpg', '/pcb/pcb_2.jpg', '/pcb/pcb_3.jpg', '/pcb/pcb_4.jpg', '/pcb/pcb_5.jpg', '/pcb/pcb_6.jpg', '/pcb/pcb_7.jpg'],
     stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
-    modalBody: `<p>A fully custom-designed <strong>4-layer PCB</strong> for a retrofit smart home automation controller — engineered from first principles in <strong>Altium Designer</strong>, taking the project from a breadboard prototype all the way to production-ready Gerber files.</p>
+    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid #ff2442;padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation — ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
+      <p>A fully custom-designed <strong>4-layer PCB</strong> for a retrofit smart home automation controller — engineered from first principles in <strong>Altium Designer</strong>, taking the project from a breadboard prototype all the way to production-ready Gerber files.</p>
       <p>The board is designed to fit into existing electrical installations without requiring rewiring, while adding smart control, presence detection, and environmental sensing capabilities on top of traditional wall switches.</p>
 
       <br><p><strong style="color:#ff2442">PCB ARCHITECTURE & STACKUP:</strong></p>
