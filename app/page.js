@@ -121,6 +121,45 @@ const allProjects = [
         <li><strong>TTL-Based Security Tokens</strong> — Temporary visitor access passes auto-expire using Upstash Redis key expiration.</li>
         <li><strong>PWA Scanner</strong> — Lightweight progressive web application interface for gate security officers.</li>
       </ul>`
+  },
+  {
+    id: 'hw5',
+    num: '06',
+    category: 'PCB Design & Hardware',
+    title: 'Smart Home — 4-Channel Relay PCB',
+    meta: 'Altium Designer / 4-Layer PCB / ESP32 / mmWave Radar / Isolated AC-DC',
+    gitUrl: 'https://github.com/ajithhhak/HOME-AUTOMATION-4-CHANNEL-RELAY',
+    thumbnail: '/auto/1.jpg',
+    images: ['/auto/1.jpg', '/auto/2.jpg', '/auto/3.jpg', '/auto/4.jpg'],
+    stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
+    modalBody: `<p>A fully custom-designed <strong>4-layer PCB</strong> for a retrofit smart home automation controller — engineered from first principles in <strong>Altium Designer</strong>, taking the project from a breadboard prototype all the way to production-ready Gerber files.</p>
+      <p>The board is designed to fit into existing electrical installations without requiring rewiring, while adding smart control, presence detection, and environmental sensing capabilities on top of traditional wall switches.</p>
+
+      <br><p><strong style="color:#ff2442">PCB ARCHITECTURE & STACKUP:</strong></p>
+      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+        <li><strong>4-Layer Stack</strong> — L1: components &amp; signal routing / L2: solid GND pour / L3: power distribution / L4: low-voltage signals.</li>
+        <li><strong>Isolated AC/DC Supply</strong> — HLK-10M05 provides galvanic isolation between 230V mains and SELV control circuitry.</li>
+        <li><strong>Mains / SELV Separation</strong> — Physical isolation boundary enforced in layout with creepage and clearance rules set before routing began.</li>
+        <li><strong>Design Rules First</strong> — Clearance, track widths, and isolation constraints established upfront; DRC passed with minimal cleanup.</li>
+      </ul>
+
+      <br><p><strong style="color:#ff2442">KEY HARDWARE:</strong></p>
+      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+        <li><strong>ESP32-WROOM-32D</strong> — Main controller for Wi-Fi, relay switching, I²C / UART peripherals, and local automation logic.</li>
+        <li><strong>ULN2803A Relay Driver</strong> — Darlington array drives 4 relay coils with integrated flyback suppression, keeping coil current off ESP32 GPIOs.</li>
+        <li><strong>MCP23017 GPIO Expander</strong> — I²C expander for up to 6 physical wall-switch inputs; fully interrupt-driven, no polling.</li>
+        <li><strong>HLK-LD2410C mmWave Radar</strong> — UART-connected presence sensor with stationary target detection beyond simple binary output.</li>
+        <li><strong>SHT31</strong> — High-accuracy I²C temperature and relative humidity sensor.</li>
+        <li><strong>PIR Sensor</strong> — Secondary motion detection channel for supplementary automation triggers.</li>
+      </ul>
+
+      <br><p><strong style="color:#ff2442">DESIGN WORKFLOW:</strong></p>
+      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+        <li><strong>Component Selection</strong> — Each component validated against datasheets for electrical ratings, pin spacing, footprint dimensions, and availability.</li>
+        <li><strong>Custom Footprints</strong> — Several footprints created or verified manually against manufacturer mechanical drawings.</li>
+        <li><strong>Routing &amp; Copper Pour</strong> — Signal routing completed with solid ground planes and power distribution on inner layers.</li>
+        <li><strong>DRC &amp; Gerber Output</strong> — Full design rule check passed; production Gerber files generated and verified.</li>
+      </ul>`
   }
 ];
 
@@ -148,7 +187,7 @@ const educationData = [
 const hardwareSkills = [
   'Embedded Systems', 'ESP32 / Arduino', 'Robotics & Automation',
   'IoT Architecture', 'Sensors & Actuators', 'Digital Logic',
-  'VLSI Fundamentals', 'Analog Circuits', 'Network Analysis',
+  'PCB Design', 'Altium Designer', 'VLSI Fundamentals', 'Analog Circuits', 'Network Analysis',
   'Comm Systems', 'Hardware Debugging'
 ];
 
@@ -267,6 +306,10 @@ export default function Home() {
               <li className="hero-highlight-item">
                 <span className="plus">+</span>
                 <span>Full-Stack Cloud Sync &amp; Real-Time Telemetry</span>
+              </li>
+              <li className="hero-highlight-item">
+                <span className="plus">+</span>
+                <span>4-Layer PCB Design — Smart Home Controller</span>
               </li>
             </ul>
           </div>
@@ -579,6 +622,23 @@ export default function Home() {
                 >
                   <span className="post-icon">in</span>
                   <span>Open LinkedIn Post ↗</span>
+                </a>
+              </div>
+            )}
+
+            {modalData.gitUrl && (
+              <div style={{ padding: '0.85rem 2rem', background: 'var(--accent-tint)', borderBottom: '1px solid var(--border-accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600' }}>
+                  Source & Design Files on GitHub:
+                </span>
+                <a
+                  href={modalData.gitUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-post-link"
+                >
+                  <span className="post-icon">gh</span>
+                  <span>Open GitHub Repository ↗</span>
                 </a>
               </div>
             )}
