@@ -54,20 +54,10 @@ footer.section{display:flex;align-items:center;justify-content:space-between;gap
   transform-origin: 50% 82%;
   transform: translate(var(--drag), calc(-13px * var(--depth)))
     rotate(calc(2deg * var(--depth) + var(--tilt))) scale(calc(1 - .035 * var(--depth)));
-  transition: transform 380ms cubic-bezier(.2,.8,.25,1);
+  transition: transform 360ms cubic-bezier(.18,.9,.22,1.08);
 }
 .deck-card:disabled { pointer-events: none; opacity: 1; color: inherit; }
 .deck-card[data-dragging] { transition: none; cursor: grabbing; }
-.deck-card[data-departing] { animation: deal-card 400ms cubic-bezier(.4,0,.28,1) both; }
-@keyframes deal-card {
-  from { transform: translateX(var(--drag)) rotate(var(--tilt)); }
-  65% { opacity: 1; }
-  to {
-    opacity: 0;
-    transform: translate(calc(32% * var(--side)), -9%)
-      rotate(calc(15deg * var(--side))) rotateY(calc(-12deg * var(--side))) scale(.92);
-  }
-}
 .hero { overflow-x: clip; overflow-clip-margin: 12px; }
 .deck-photo { display: block; width: 100%; aspect-ratio: 1.73; object-fit: cover; }
 .deck-controls { display: flex; align-items: center; gap: .45rem; margin-top: .85rem; }
