@@ -66,16 +66,12 @@ export default function ImageCarousel({ images, alt, variant = 'card' }) {
               className="carousel-arrow carousel-arrow-left"
               onClick={goPrev}
               aria-label="Previous image"
-            >
-              ‹
-            </button>
+            >&lsaquo;</button>
             <button
               className="carousel-arrow carousel-arrow-right"
               onClick={goNext}
               aria-label="Next image"
-            >
-              ›
-            </button>
+            >&rsaquo;</button>
           </>
         )}
 

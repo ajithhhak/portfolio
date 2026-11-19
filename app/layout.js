@@ -1,7 +1,6 @@
 import './globals.css';
 import './modal.css';
 import Navigation from '@/components/Navigation';
-import SmoothScroll from '@/components/SmoothScroll';
 
 export const metadata = {
   title: 'Ajith Kumar Choudoju | Electronics Engineer',
@@ -12,7 +11,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SmoothScroll />
         <Navigation />
         <main>{children}</main>
       </body>

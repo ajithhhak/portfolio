@@ -4,29 +4,30 @@ import Lenis from 'lenis';
 
 export default function SmoothScroll() {
   useEffect(() => {
-    // Initialize Lenis for momentum smooth scrolling
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionPreference.matches) return undefined;
+
     const lenis = new Lenis({
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.15,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.2,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1,
       infinite: false,
     });
 
     window.__lenis = lenis;
 
-    function raf(time) {
+    let rafId;
+    const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
 
-    const rafId = requestAnimationFrame(raf);
-
-    // Pause Lenis when any modal opens, resume when it closes
-    const observer = new MutationObserver(() => {
+    const syncModalScroll = () => {
       const modalOpen = document.querySelector('.project-modal-overlay.open');
       if (modalOpen) {
         lenis.stop();
@@ -35,25 +36,33 @@ export default function SmoothScroll() {
         lenis.start();
         document.body.style.overflow = '';
       }
+    };
+
+    const observer = new MutationObserver(syncModalScroll);
+    observer.observe(document.body, {
+      attributes: true,
+      subtree: true,
+      attributeFilter: ['class'],
     });
 
-    observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+    const handleAnchorClick = (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const anchor = event.target.closest('a[href^="#"]');
+      if (!anchor || anchor.target === '_blank') return;
 
-    // Intercept in-page anchor links and route them through Lenis
-    const handleAnchorClick = (e) => {
-      const anchor = e.target.closest('a[href^="#"]');
-      if (!anchor) return;
       const targetId = anchor.getAttribute('href');
       if (!targetId || targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
+
+      let targetElement;
+      try {
+        targetElement = document.querySelector(targetId);
+      } catch {
+        return;
+      }
       if (!targetElement) return;
 
-      e.preventDefault();
-      lenis.scrollTo(targetElement, {
-        offset: -85,
-        duration: 1.8,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
+      event.preventDefault();
+      lenis.scrollTo(targetElement, { offset: -85, duration: 1.2 });
       window.history.pushState(null, '', targetId);
     };
 

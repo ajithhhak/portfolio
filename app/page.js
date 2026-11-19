@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { useState, useEffect } from 'react';
 import ImageCarousel from '@/components/ImageCarousel';
 
@@ -16,7 +16,7 @@ const allProjects = [
     modalBody: `<p>Most commercial smart-home products work well—until you need something they weren't designed to do. <strong>Smart Home Ecosystem v2.0</strong> is a custom, full-stack home automation platform engineered to provide total control over the <strong>hardware, firmware, local tactile inputs, automation logic, and cloud integration</strong>.</p>
       <p>Built around <strong>ESP32 microcontrollers</strong> and 4-channel active-LOW optocoupled relay modules, the system controls real household loads such as lights, fans, and sockets (up to 230V AC). It prioritizes <strong>local hardware resilience</strong>: appliances remain fully operable via <strong>physical wall switches and tactile push buttons</strong> with zero latency even during network outages, while seamlessly synchronizing state with the cloud, web dashboard, and mobile app when connected.</p>
       
-      <br><p><strong style="color:#ff2442">LOCAL HARDWARE CONTROL: PHYSICAL SWITCHES &amp; BUTTONS:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">LOCAL HARDWARE CONTROL: PHYSICAL SWITCHES &amp; BUTTONS:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>Physical Wall Switches (Toggle/Rocker)</strong> — Traditional wall switches integrated directly into the ESP32 GPIO circuitry via <code>SwitchManager</code>. State-change edge detection ensures flipping a switch toggles the appliance instantly.</li>
         <li><strong>Physical Push Buttons (Tactile Momentary)</strong> — Quick push-to-toggle buttons positioned on device enclosures with internal pull-ups and debouncing.</li>
@@ -24,14 +24,14 @@ const allProjects = [
         <li><strong>Fail-Safe Offline Mode</strong> — All local tactile inputs operate 100% autonomously without requiring Wi-Fi.</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">PIR MOTION AUTOMATION &amp; LIVE SENSOR STREAMING:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">PIR MOTION AUTOMATION &amp; LIVE SENSOR STREAMING:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>Motion-Triggered Lighting</strong> — High-sensitivity PIR sensor detects motion on dedicated GPIO pins, instantly triggering the assigned relay.</li>
         <li><strong>Configurable Auto-Off Inactivity Timer</strong> — Countdown begins when motion ceases; automatically powers down appliances to maximize energy efficiency.</li>
         <li><strong>Live Telemetry Streaming</strong> — Real-time PIR sensor state is streamed continuously to Firebase and visualized dynamically on the web dashboard.</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">ESP32 FIRMWARE &amp; WEBSERIAL REAL-TIME ORIGIN LOGGING:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">ESP32 FIRMWARE &amp; WEBSERIAL REAL-TIME ORIGIN LOGGING:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>RelayManager</strong> — Active-LOW relay outputs with safe boot defaults (all relays initialize OFF).</li>
         <li><strong>SwitchManager</strong> — Real-time debounced polling and edge detection for physical switches.</li>
@@ -47,12 +47,12 @@ const allProjects = [
     title: 'Multi-Robot Warehouse Navigation',
     meta: 'Autonomous Navigation / RFID Grid / BFS Pathfinding / IMU',
     thumbnail: '/hw1_1.png',
-    images: ['/hw1_1.png', '/hw1_2.png', '/hw1_3.png'],
+    images: ['/hw1_1.png'],
     stack: ['RFID', 'IMU', 'Ultrasonic Sensors', 'Wheel Encoders', 'BFS Algorithm', 'Embedded Systems'],
     modalBody: `<p>A comprehensive warehouse automation system currently in active development, aimed at streamlining logistics and reducing manual labor. The system features custom-built robots capable of autonomous navigation across a shared warehouse environment, avoiding dynamic obstacles and finding the most efficient routes.</p>
       <p>The architecture involves a central server running a custom BFS-based pathfinding algorithm that coordinates multiple robots in real-time, preventing deadlocks and collisions.</p>
       
-      <br><p><strong style="color:#ff2442">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>RFID Localization Grid</strong> — Precision indoor positioning without GPS using embedded floor tags.</li>
         <li><strong>IMU-Assisted Heading Tracking</strong> — Directional stability to maintain accurate heading over long distances.</li>
@@ -74,7 +74,7 @@ const allProjects = [
     modalBody: `<p>A secure autonomous delivery robot developed to automate package transportation in warehouses, campuses, and controlled-access environments. Designed to reduce manual intervention while ensuring that delivered packages remain strictly accessible only to authenticated recipients.</p>
       <p>Security is guaranteed through an integrated <strong>fingerprint authentication module</strong> that electronically locks the storage compartment until a registered user is verified, preventing unauthorized tampering during transit.</p>
       
-      <br><p><strong style="color:#ff2442">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>Autonomous Indoor Navigation</strong> — Ultrasonic sensor array detecting and navigating around obstacles.</li>
         <li><strong>MPU6050 IMU Orientation</strong> — Continuous gyro and accelerometer feedback for directional stability.</li>
@@ -95,7 +95,7 @@ const allProjects = [
     modalBody: `<p>A modern, highly interactive Habit Tracker built from the ground up focusing on performance, fluid UI/UX, and daily habit consistency.</p>
       <p>Features optimistic UI updates, dynamic GitHub-style contribution heatmaps, smooth micro-interactions, and a custom OTP passwordless authentication flow.</p>
       
-      <br><p><strong style="color:#ff2442">TECHNICAL HIGHLIGHTS:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">TECHNICAL HIGHLIGHTS:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>Interactive Heatmap Grid</strong> — Zero-latency updates calculated immediately on the client before syncing with MongoDB.</li>
         <li><strong>Streak Calculations</strong> — Real-time tracking of current and longest streaks with completion metrics.</li>
@@ -114,7 +114,7 @@ const allProjects = [
     stack: ['Telegram Bot API', 'Vercel', 'Upstash Redis', 'Next.js', 'PWA', 'JsBarcode', 'ZXing'],
     modalBody: `<p>An innovative serverless visitor management platform enabling friction-free visitor check-in, multi-tier approval workflows, dynamic barcode identification, and automated access control—operated entirely through a Telegram bot interface.</p>
       
-      <br><p><strong style="color:#ff2442">KEY INNOVATIONS:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">KEY INNOVATIONS:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>Dynamic Barcode Verification</strong> — Generates Code128 barcodes scanned directly via camera with ZXing.</li>
         <li><strong>Telegram Bot Interface</strong> — Host approval / rejection buttons integrated into Telegram with instantaneous webhook response.</li>
@@ -132,11 +132,11 @@ const allProjects = [
     thumbnail: '/pcb/pcb_1.jpg',
     images: ['/pcb/pcb_1.jpg', '/pcb/pcb_2.jpg', '/pcb/pcb_3.jpg', '/pcb/pcb_4.jpg', '/pcb/pcb_5.jpg', '/pcb/pcb_6.jpg', '/pcb/pcb_7.jpg'],
     stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
-    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid #ff2442;padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation &mdash; ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
+    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid var(--accent-bright);padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation &mdash; ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
 
       <p>This project began as a hobbyist smart home build and has evolved into a fully custom-designed, production-oriented PCB system. Developed end-to-end &mdash; from system architecture and component selection, through schematic capture, all the way to a complete 4-layer PCB layout in <strong>Altium Designer</strong>.</p>
 
-      <br><p><strong style="color:#ff2442">&#10024; FEATURES:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#10024; FEATURES:</strong></p>
       <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
         <tbody>
           <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa;width:42%">&#9889; Retrofit-friendly</td><td style="padding:0.4rem 0.6rem">Works with existing electrical installations</td></tr>
@@ -154,7 +154,7 @@ const allProjects = [
         </tbody>
       </table>
 
-      <br><p><strong style="color:#ff2442">&#129504; SYSTEM ARCHITECTURE:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#129504; SYSTEM ARCHITECTURE:</strong></p>
       <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:1rem;font-size:0.7rem;line-height:1.6;overflow-x:auto;color:#d4d4d8;font-family:monospace">AC MAINS (230V)
   |
   Protection &amp; Filter
@@ -172,7 +172,7 @@ ESP32 (Main Controller)
   |------- SHT31 (I2C) ----- Temp &amp; Humidity
   |------- OLED (I2C) ------ Local Display</pre>
 
-      <br><p><strong style="color:#ff2442">&#128299; HARDWARE:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#128299; HARDWARE:</strong></p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li><strong>ESP32-WROOM-32D</strong> &mdash; Main controller: Wi-Fi, relay switching, I&sup2;C / UART peripherals, and local automation logic.</li>
         <li><strong>ULN2803A Relay Driver</strong> &mdash; Darlington array drives 4 relay coils with integrated flyback suppression, keeping coil currents off ESP32 GPIOs.</li>
@@ -182,7 +182,7 @@ ESP32 (Main Controller)
         <li><strong>PIR Sensor</strong> &mdash; Secondary motion detection channel for supplementary automation triggers.</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">&#128268; INTERFACES:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#128268; INTERFACES:</strong></p>
       <p style="font-size:0.8rem;color:#a1a1aa;margin-bottom:0.25rem">I&sup2;C Bus</p>
       <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">ESP32 GPIO21 &gt; SDA
 ESP32 GPIO22 &gt; SCL
@@ -196,9 +196,9 @@ ESP32 GPIO26 &gt; ULN2803A &gt; Relay 2
 ESP32 GPIO27 &gt; ULN2803A &gt; Relay 3
 ESP32 GPIO33 &gt; ULN2803A &gt; Relay 4</pre>
 
-      <br><p><strong style="color:#ff2442">&#127959; PCB LAYER STACKUP:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#127959; PCB LAYER STACKUP:</strong></p>
       <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
-        <thead><tr style="border-bottom:1px solid rgba(255,36,66,0.4)"><th style="padding:0.4rem 0.6rem;text-align:left;color:#ff2442;font-weight:700">Layer</th><th style="padding:0.4rem 0.6rem;text-align:left;color:#ff2442;font-weight:700">Function</th></tr></thead>
+        <thead><tr style="border-bottom:1px solid rgba(255,36,66,0.4)"><th style="padding:0.4rem 0.6rem;text-align:left;color:var(--accent-bright);font-weight:700">Layer</th><th style="padding:0.4rem 0.6rem;text-align:left;color:var(--accent-bright);font-weight:700">Function</th></tr></thead>
         <tbody>
           <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L1 &mdash; Top</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Component placement, signal routing, mains routing</td></tr>
           <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L2</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Solid GND copper pour</td></tr>
@@ -207,7 +207,7 @@ ESP32 GPIO33 &gt; ULN2803A &gt; Relay 4</pre>
         </tbody>
       </table>
 
-      <br><p><strong style="color:#ff2442">&#9889; POWER ARCHITECTURE:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#9889; POWER ARCHITECTURE:</strong></p>
       <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">230V AC &gt; Fuse &gt; MOV &gt; X2 Cap &gt; Common-Mode Filter
   |
 HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
@@ -215,7 +215,7 @@ HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
 3.3V Buck Converter &gt; +3.3V Rail</pre>
       <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7;margin-top:0.5rem">Mains section is <strong style="color:#fff">electrically isolated</strong> from SELV circuitry. Low-voltage electronics share a common DC ground on the secondary side only.</p>
 
-      <br><p><strong style="color:#ff2442">&#127968; RETROFIT PHILOSOPHY:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#127968; RETROFIT PHILOSOPHY:</strong></p>
       <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7">Traditional wall-switch operation is preserved at all times. The controller adds on top:</p>
       <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
         <li>Remote and voice control</li>
@@ -225,14 +225,14 @@ HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
         <li>Future IoT platform integrations</li>
       </ul>
 
-      <br><p><strong style="color:#ff2442">&#128295; DESIGN WORKFLOW:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#128295; DESIGN WORKFLOW:</strong></p>
       <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">Concept &gt; System Architecture &gt; Component Selection
 &gt; Schematic Capture &gt; Footprint Selection &amp; Creation
 &gt; PCB Stackup &amp; Design Rules &gt; Component Placement &gt; Routing
 &gt; Copper Pour &amp; Ground Planes &gt; DRC &amp; Clearance Verification
 &gt; Silkscreen Cleanup &gt; Final PCB Output &amp; Gerber Generation</pre>
 
-      <br><p><strong style="color:#ff2442">&#128679; CURRENT STATUS:</strong></p>
+      <br><p><strong style="color:var(--accent-bright)">&#128679; CURRENT STATUS:</strong></p>
       <p style="font-size:0.8rem;font-weight:700;color:#22c55e;margin-bottom:0.5rem">PCB Design &mdash; Complete</p>
       <ul style="margin-top:0.25rem;padding-left:1.2rem;line-height:2;font-size:0.82rem">
         <li style="color:#22c55e">&#9989; System architecture &amp; component selection</li>
@@ -311,359 +311,79 @@ const workProcessSteps = [
 export default function Home() {
   const [modalData, setModalData] = useState(null);
 
+  useEffect(() => {
+    if (!modalData) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const previouslyFocused = document.activeElement;
+    const modal = document.querySelector('.project-modal');
+    const closeButton = modal?.querySelector('.modal-close');
+    closeButton?.focus();
+
+    const handleModalKeys = (event) => {
+      if (event.key === 'Escape') {
+        setModalData(null);
+        return;
+      }
+
+      if (event.key !== 'Tab' || !modal) return;
+      const focusable = [...modal.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleModalKeys);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleModalKeys);
+      if (previouslyFocused instanceof HTMLElement && previouslyFocused.isConnected) {
+        previouslyFocused.focus();
+      }
+    };
+  }, [modalData]);
+
   return (
-    <div className="page-container">
-      {/* =========================================================
-          HERO SECTION (Matching the editorial reference layout)
-          ========================================================= */}
-      <section className="hero-wrapper" id="hero">
-        {/* Giant Watermark behind the hero */}
-        <div className="hero-watermark" aria-hidden="true">
-          PORTFOLIO
+    <div className="shell">
+      <section className="hero" id="hero">
+        <div>
+          <p className="eyebrow">Electronics &amp; embedded systems</p>
+          <h1>Ajith Kumar<br/><em>Choudoju.</em></h1>
+          <p className="intro">I design circuit boards and write firmware for connected devices. My work spans retrofit home automation, autonomous robots, and the software that connects them.</p>
+          <div className="actions"><a className="primary" href="#projects">Explore projects</a><a className="secondary" href="/resume.pdf" download>Download résumé</a></div>
+          <p className="location">Hyderabad, India <b>·</b> ECE at SNIST</p>
         </div>
-
-        <div className="hero-main-grid">
-          {/* Left Column: Intro, Titles & Bio */}
-          <div className="hero-left">
-            <div className="hero-script-intro">Hello, I'm</div>
-            <div className="hero-title-group">
-              <h1>Ajith Kumar</h1>
-              <div className="hero-role-title">Electronics Engineer</div>
-            </div>
-            <p className="hero-bio">
-              Final-year ECE student with hands-on experience in robotics, automation, embedded systems, and intelligent software solutions. Building resilient systems where hardware and code seamlessly converge.
-            </p>
-
-            {/* Resume CTA and Location Group */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1.25rem', flexWrap: 'wrap' }}>
-              <a
-                href="/resume.pdf"
-                download="Ajith_Kumar_Choudoju_Resume.pdf"
-                className="btn-crimson-download"
-                title="Download Official Resume PDF"
-              >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Download Resume</span>
-              </a>
-
-              <div className="hero-location" style={{ margin: 0 }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
-                </svg>
-                <span>Based in Hyderabad, India</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Center Column: Portrait in styled frame */}
-          <div className="hero-center-portrait">
-            <div className="portrait-frame">
-              <img
-                src="/profile.jpeg"
-                alt="Ajith Kumar Choudoju"
-                className="portrait-img"
-              />
-            </div>
-          </div>
-
-          {/* Right Column: Engineering Highlights */}
-          <div className="hero-right-highlights">
-            <div className="hero-highlight-header">
-              <div className="highlight-circle-icon">+</div>
-              <span>Engineering practical systems that bridge physical hardware and intelligent code.</span>
-            </div>
-
-            <ul className="hero-highlight-list">
-              <li className="hero-highlight-item">
-                <span className="plus">+</span>
-                <span>Multi-Robot Autonomous Warehouse Navigation</span>
-              </li>
-              <li className="hero-highlight-item">
-                <span className="plus">+</span>
-                <span>Retrofit Smart Home Automation</span>
-              </li>
-              <li className="hero-highlight-item">
-                <span className="plus">+</span>
-                <span>Biometric Robotics &amp; Autonomous Delivery</span>
-              </li>
-              <li className="hero-highlight-item">
-                <span className="plus">+</span>
-                <span>Full-Stack Cloud Sync &amp; Real-Time Telemetry</span>
-              </li>
-              <li className="hero-highlight-item">
-                <span className="plus">+</span>
-                <span>4-Layer PCB Design — Smart Home Controller</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <button className="feature" onClick={() => setModalData(allProjects.find(p => p.id === 'hw5'))} aria-haspopup="dialog" aria-label="View four-channel relay PCB project">
+          <div className="drawing"><span className="drawing-label">PCB / TOP VIEW</span><img src="/pcb/relay-board.webp" width="877" height="297" alt="Four-channel relay controller layout"/><span className="drawing-note">ESP32 · 4-LAYER BOARD</span></div>
+          <div className="caption"><div><span className="eyebrow">Featured design</span><h2>Four-channel relay PCB</h2></div><span className="plus" aria-hidden="true">+</span></div>
+        </button>
       </section>
-
-      {/* =========================================================
-          SELECTED PROJECTS SECTION (4+ Card Showcase with 01 →)
-          ========================================================= */}
-      <section className="section-wrapper" id="projects">
-        <div className="section-header">
-          <h2 className="section-title">Selected Projects</h2>
-        </div>
-
-        <div className="projects-grid">
-          {allProjects.map((proj) => (
-            <div
-              key={proj.id}
-              className="project-card"
-              onClick={() => setModalData(proj)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') setModalData(proj);
-              }}
-            >
-              {/* Project Image Box */}
-              <div className="project-thumb-box">
-                <img
-                  src={proj.thumbnail}
-                  alt={proj.title}
-                  className="project-thumb-img"
-                />
-                <div className="project-tag-overlay">{proj.category}</div>
-              </div>
-
-              {/* Project Details */}
-              <div className="project-card-body">
-                <h3 className="project-card-title">{proj.title}</h3>
-                <p className="project-card-meta">{proj.meta}</p>
-
-                <div className="project-card-footer">
-                  <span style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: '700' }}>
-                    View Specs
-                  </span>
-                  <div className="project-num-arrow">
-                    <span>{proj.num}</span>
-                    <span>→</span>
-                  </div>
-                </div>
-
-                {proj.postUrl && (
-                  <div style={{ marginTop: '0.75rem', paddingTop: '0.75rem', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
-                    <a
-                      href={proj.postUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="project-post-link"
-                    >
-                      <span className="post-icon">in</span>
-                      <span>LinkedIn Post &amp; Video ↗</span>
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      <section className="section" id="projects"><h2>Selected projects</h2>
+        <div className="projects">{allProjects.map(proj => (
+          <article className="project" key={proj.id}>
+            <button onClick={() => setModalData(proj)} aria-haspopup="dialog" aria-label={`Explore ${proj.title}`}>
+              <div className="thumb"><img src={proj.thumbnail} alt="" loading="lazy"/></div>
+              <div className="details"><span className="eyebrow">{proj.category}</span><h3>{proj.title}</h3><p>{proj.meta.split(' / ').join(' · ')}</p></div>
+            </button>
+          </article>))}</div>
       </section>
-
-      {/* =========================================================
-          3-COLUMN SECTION:
-          Col 1: Education & Skills
-          Col 2: Work Process
-          Col 3: Philosophy & Quote Card
-          ========================================================= */}
-      <section className="three-col-section" id="education-skills">
-        {/* Column 1: Education & Skills */}
-        <div className="col-card">
-          <h2 className="col-header-title">Education &amp; Skills</h2>
-
-          <div className="col-sublabel">Education</div>
-          {educationData.map((edu, idx) => (
-            <div key={idx} className="edu-item">
-              <div className="edu-main">
-                <div className="edu-degree">{edu.degree}</div>
-                <div className="edu-college">{edu.college}</div>
-                <div className="edu-grade">{edu.grade}</div>
-              </div>
-              <div className="edu-date">{edu.date}</div>
-            </div>
-          ))}
-
-          <div style={{ marginTop: '0.85rem' }}>
-            <a
-              href="/resume.pdf"
-              download="Ajith_Kumar_Choudoju_Resume.pdf"
-              className="resume-download-link"
-              title="Download Full Resume PDF"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              <span>Download Official Resume (PDF)</span>
-            </a>
-          </div>
-
-          <div className="col-sublabel" style={{ marginTop: '1.25rem' }}>Core Hardware &amp; Embedded</div>
-          <div className="skills-pills-wrap">
-            {hardwareSkills.map((skill) => (
-              <span key={skill} className="skill-pill">
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          <div className="col-sublabel" style={{ marginTop: '1.25rem' }}>Software &amp; Web Development</div>
-          <div className="skills-pills-wrap">
-            {softwareSkills.map((skill) => (
-              <span key={skill} className="skill-pill">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Column 2: Work Process */}
-        <div className="col-card" id="work-process">
-          <h2 className="col-header-title">Work Process</h2>
-          <div className="process-timeline">
-            {workProcessSteps.map((step, idx) => (
-              <div key={idx} className="process-step">
-                <div className="process-node-icon">
-                  {idx + 1}
-                </div>
-                <div className="process-step-content">
-                  <div className="process-step-title">{step.title}</div>
-                  <div className="process-step-desc">{step.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Column 3: Philosophy & Quote Card */}
-        <div className="col-card">
-          <div className="quote-card">
-            <div>
-              <div className="quote-marks">““</div>
-              <p className="quote-text">
-                Good engineering is not just how it looks or simulates, but how reliably it performs when hardware meets the physical world.
-              </p>
-              <div className="quote-signature">Ajith Kumar</div>
-            </div>
-
-            <div>
-              <div style={{ padding: '0.85rem 0', borderTop: '1px solid var(--border-accent)', marginBottom: '1.25rem' }}>
-                <div style={{ fontSize: '0.72rem', color: 'var(--accent-bright)', fontWeight: '800', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                  Leadership &amp; Experience
-                </div>
-                <div style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600', marginTop: '0.25rem' }}>
-                  General Secretary — Electronics Club
-                </div>
-                <div style={{ fontSize: '0.74rem', color: '#a1a1aa' }}>
-                  CHARGE Revamped 2.0 | SNIST (2025 — Present)
-                </div>
-              </div>
-
-              <div className="quote-slogan">
-                <span>LET'S CREATE SOMETHING GREAT TOGETHER.</span>
-                <span>+</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          LET'S WORK TOGETHER / CONTACT FOOTER
-          ========================================================= */}
-      <footer className="footer-section" id="contact">
-        <div className="footer-grid">
-          {/* Left: Call to action */}
-          <div className="footer-left-cta">
-            <h2 className="footer-headline">
-              Let's Work<br />Together <span>+</span>
-            </h2>
-            <p className="footer-subtext">
-              I'm currently open for new opportunities, robotics &amp; embedded engineering collaborations, and impactful technical problems. Let's create something exceptional.
-            </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginTop: '0.5rem' }}>
-              <a
-                href="mailto:choudojuajith17@gmail.com"
-                className="footer-action-btn"
-                style={{ marginTop: 0 }}
-              >
-                <span>→</span>
-                <span>Available for Hire</span>
-              </a>
-              <a
-                href="/resume.pdf"
-                download="Ajith_Kumar_Choudoju_Resume.pdf"
-                className="footer-action-btn footer-resume-btn"
-                style={{ marginTop: 0 }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Download Resume</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Middle: Social & Contact Links */}
-          <div className="footer-middle-contacts">
-            <a
-              href="mailto:choudojuajith17@gmail.com"
-              className="contact-link-row"
-            >
-              <div className="contact-icon-circle">✉</div>
-              <span className="contact-link-text">choudojuajith17@gmail.com</span>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/ajith-kumar-choudoju-37181a2b7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link-row"
-            >
-              <div className="contact-icon-circle">in</div>
-              <span className="contact-link-text">linkedin.com/in/ajith-kumar-choudoju</span>
-            </a>
-
-            <a
-              href="https://github.com/ajithhhak"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link-row"
-            >
-              <div className="contact-icon-circle">gh</div>
-              <span className="contact-link-text">github.com/ajithhhak</span>
-            </a>
-
-            <div className="contact-link-row">
-              <div className="contact-icon-circle">📍</div>
-              <span className="contact-link-text">Hyderabad, India</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="footer-bottom-bar">
-          <div>© 2026 AJITH KUMAR CHOUDOJU</div>
-          <div>BASED IN HYDERABAD, INDIA</div>
-        </div>
-      </footer>
-
-      {/* =========================================================
-          INTERACTIVE SPECIFICATION MODAL
-          ========================================================= */}
+      <section id="education-skills" className="section"><h2>Education &amp; skills</h2><div className="background-grid"><div>{educationData.map(edu => <div className="education" key={edu.degree}><small>{edu.date}</small><h3>{edu.degree}</h3><p>{edu.college} · {edu.grade}</p></div>)}</div>
+        <div>{[['Hardware & embedded', hardwareSkills], ['Software & web', softwareSkills]].map(([label, skills]) => <div className="skill-set" key={label}><h3>{label}</h3><ul>{skills.map(skill => <li key={skill}>{skill}</li>)}</ul></div>)}</div></div></section>
+      <section id="work-process" className="section"><h2>Engineering process</h2><div className="background-grid"><ol className="steps">{workProcessSteps.map(step => <li key={step.title}><h3>{step.title.slice(4)}</h3><p>{step.desc}</p></li>)}</ol>
+        <aside className="leadership"><img src="/profile.jpeg" alt="Ajith Kumar Choudoju" width="76" height="90" loading="lazy"/><p className="eyebrow">Leadership at SNIST</p><h3>General Secretary,<br/>Electronics Club</h3><p>Led CHARGE Revamped 2.0, a national technical symposium with a hackathon, project expo, and poster presentations.</p></aside></div></section>
+      <footer className="section" id="contact"><div><p className="eyebrow">Contact</p><h2>Get in touch.</h2><p>Open to opportunities in PCB design, firmware, and robotics.</p></div><div className="contact-links"><a href="mailto:choudojuajith17@gmail.com">choudojuajith17@gmail.com</a><div><a href="https://www.linkedin.com/in/ajith-kumar-choudoju-37181a2b7" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://github.com/ajithhhak" target="_blank" rel="noreferrer">GitHub</a><a href="/resume.pdf" download>Résumé</a></div></div></footer>
       <div
         className={`project-modal-overlay ${modalData ? 'open' : ''}`}
+        aria-hidden={!modalData}
         onClick={(e) => {
           if (e.target.classList.contains('project-modal-overlay')) {
             setModalData(null);
@@ -671,21 +391,19 @@ export default function Home() {
         }}
       >
         {modalData && (
-          <div className="project-modal" role="dialog" aria-modal="true">
+          <div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
             <button
               className="modal-close"
               onClick={() => setModalData(null)}
               aria-label="Close modal"
-            >
-              ✕
-            </button>
+            >&times;</button>
 
             <div className="modal-header">
               <div className="modal-header-label">
                 <span className="dot"></span>
                 <span>{modalData.category}</span>
               </div>
-              <h3 className="modal-title">{modalData.title}</h3>
+              <h3 className="modal-title" id="project-modal-title">{modalData.title}</h3>
             </div>
 
             {modalData.images && modalData.images.length > 0 && (
@@ -708,7 +426,7 @@ export default function Home() {
                   className="project-post-link"
                 >
                   <span className="post-icon">in</span>
-                  <span>Open LinkedIn Post ↗</span>
+                  <span>View project post</span>
                 </a>
               </div>
             )}
@@ -725,7 +443,7 @@ export default function Home() {
                   className="project-post-link"
                 >
                   <span className="post-icon">gh</span>
-                  <span>Open GitHub Repository ↗</span>
+                  <span>View design files</span>
                 </a>
               </div>
             )}
