@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { flushSync } from 'react-dom';
 
 export default function ProjectDeck({ projects, onOpen }) {
@@ -50,7 +51,7 @@ export default function ProjectDeck({ projects, onOpen }) {
   function beginDrag(event) {
     if (turning.current || !event.isPrimary || event.button !== 0) return;
     suppressClick.current = false;
-    gesture.current = { id: event.pointerId, x: event.clientX, time: event.timeStamp };
+    gesture.current = { id: event.pointerId, x: event.clientX, y: event.clientY, time: event.timeStamp };
     event.currentTarget.setPointerCapture(event.pointerId);
   }
 
@@ -61,7 +62,9 @@ export default function ProjectDeck({ projects, onOpen }) {
     const delta = event.clientX - drag.x;
     const distance = Math.abs(delta);
     const speed = distance / Math.max(1, event.timeStamp - drag.time);
-    suppressClick.current = distance > 7;
+    const vertical = Math.abs(event.clientY - drag.y);
+    suppressClick.current = Math.max(distance, vertical) > 7;
+    if (vertical > distance) { setOffset(0); return; }
     if (distance > event.currentTarget.offsetWidth * .18 || (distance > 22 && speed > .45)) {
       move(delta < 0 ? 1 : -1);
     } else {
@@ -94,6 +97,10 @@ export default function ProjectDeck({ projects, onOpen }) {
               onPointerMove={event => {
                 if (gesture.current?.id === event.pointerId) {
                   const delta = event.clientX - gesture.current.x;
+                  if (Math.abs(event.clientY - gesture.current.y) > Math.abs(delta)) {
+                    setOffset(0);
+                    return;
+                  }
                   const width = event.currentTarget.offsetWidth;
                   setOffset(delta / (1 + Math.abs(delta) / (width * .7)));
                 }
@@ -111,7 +118,7 @@ export default function ProjectDeck({ projects, onOpen }) {
                     <img src="/pcb/relay-board.webp" width="877" height="297" alt="" />
                     <span className="drawing-note">ESP32 · 4-layer board</span>
                   </div>
-                ) : <img className="deck-photo" src={project.thumbnail} alt="" />}
+                ) : <Image className="deck-photo" src={project.thumbnail} width={780} height={451} sizes="(max-width: 680px) 90vw, (max-width: 1200px) 45vw, 550px" alt="" />}
                 <div className="caption">
                   <div><span className="eyebrow">{project.category}</span>
                     <h2>{isBoard ? 'Four-channel relay PCB' : project.title}</h2></div>

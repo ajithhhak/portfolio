@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import ProjectDeck from '@/components/ProjectDeck';
 import ImageCarousel from '@/components/ImageCarousel';
 
@@ -326,7 +327,7 @@ export default function Home() {
         <div className="projects">{allProjects.map(proj => (
           <article className="project" key={proj.id}>
             <button onClick={() => setModalData(proj)} aria-haspopup="dialog" aria-label={`Explore ${proj.title}`}>
-              <div className="thumb"><img src={proj.thumbnail} alt="" loading="lazy"/></div>
+              <div className="thumb"><Image src={proj.thumbnail} alt="" width={640} height={328} sizes="(max-width: 680px) 88px, (max-width: 1200px) 46vw, 570px" /></div>
               <div className="details"><span className="eyebrow">{proj.category}</span><h3>{proj.title}</h3><p>{proj.meta.split(' / ').join(' · ')}</p></div>
             </button>
           </article>))}</div>
@@ -347,13 +348,12 @@ export default function Home() {
       >
         {modalData && (
           <div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-            <button
-              className="modal-close"
-              onClick={() => setModalData(null)}
-              aria-label="Close modal"
-            >&times;</button>
-
             <div className="modal-header">
+              <button
+                className="modal-close"
+                onClick={() => setModalData(null)}
+                aria-label="Close modal"
+              >&times;</button>
               <div className="modal-header-label">
                 <span className="dot"></span>
                 <span>{modalData.category}</span>

@@ -22,7 +22,7 @@ export default function ImageCarousel({ images, alt, variant = 'card' }) {
   if (!images || images.length === 0) return null;
 
   const isModal = variant === 'modal';
-  const height = isModal ? '320px' : '180px';
+  const height = isModal ? 'var(--gallery-height, 320px)' : '180px';
 
   return (
     <div
