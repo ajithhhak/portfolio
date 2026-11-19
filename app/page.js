@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from 'react';
+import ProjectDeck from '@/components/ProjectDeck';
 import ImageCarousel from '@/components/ImageCarousel';
 
 const allProjects = [
   {
     id: 'hw4',
-    num: '01',
     category: 'Hardware & IoT',
     title: 'Retrofit Smart Home Automation',
     meta: 'Custom ESP32 / Retrofit Switchboard / WebSerial / RTDB / Next.js',
@@ -15,24 +15,24 @@ const allProjects = [
     stack: ['ESP32', 'C++', 'Firebase RTDB', 'React Native', 'Next.js', 'PIR Sensor', 'Physical Switches & Buttons', 'Relay Module', 'WebSerial', 'SSD1306 OLED'],
     modalBody: `<p>Most commercial smart-home products work well—until you need something they weren't designed to do. <strong>Smart Home Ecosystem v2.0</strong> is a custom, full-stack home automation platform engineered to provide total control over the <strong>hardware, firmware, local tactile inputs, automation logic, and cloud integration</strong>.</p>
       <p>Built around <strong>ESP32 microcontrollers</strong> and 4-channel active-LOW optocoupled relay modules, the system controls real household loads such as lights, fans, and sockets (up to 230V AC). It prioritizes <strong>local hardware resilience</strong>: appliances remain fully operable via <strong>physical wall switches and tactile push buttons</strong> with zero latency even during network outages, while seamlessly synchronizing state with the cloud, web dashboard, and mobile app when connected.</p>
-      
-      <br><p><strong style="color:var(--accent-bright)">LOCAL HARDWARE CONTROL: PHYSICAL SWITCHES &amp; BUTTONS:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+
+      <br><p><strong>LOCAL HARDWARE CONTROL: PHYSICAL SWITCHES &amp; BUTTONS:</strong></p>
+      <ul>
         <li><strong>Physical Wall Switches (Toggle/Rocker)</strong> — Traditional wall switches integrated directly into the ESP32 GPIO circuitry via <code>SwitchManager</code>. State-change edge detection ensures flipping a switch toggles the appliance instantly.</li>
         <li><strong>Physical Push Buttons (Tactile Momentary)</strong> — Quick push-to-toggle buttons positioned on device enclosures with internal pull-ups and debouncing.</li>
         <li><strong>Two-Way State Synchronization</strong> — When a physical switch triggers a relay locally, the ESP32 immediately updates Firebase RTDB so the web and mobile app reflect changes instantly.</li>
         <li><strong>Fail-Safe Offline Mode</strong> — All local tactile inputs operate 100% autonomously without requiring Wi-Fi.</li>
       </ul>
 
-      <br><p><strong style="color:var(--accent-bright)">PIR MOTION AUTOMATION &amp; LIVE SENSOR STREAMING:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+      <br><p><strong>PIR MOTION AUTOMATION &amp; LIVE SENSOR STREAMING:</strong></p>
+      <ul>
         <li><strong>Motion-Triggered Lighting</strong> — High-sensitivity PIR sensor detects motion on dedicated GPIO pins, instantly triggering the assigned relay.</li>
         <li><strong>Configurable Auto-Off Inactivity Timer</strong> — Countdown begins when motion ceases; automatically powers down appliances to maximize energy efficiency.</li>
         <li><strong>Live Telemetry Streaming</strong> — Real-time PIR sensor state is streamed continuously to Firebase and visualized dynamically on the web dashboard.</li>
       </ul>
 
-      <br><p><strong style="color:var(--accent-bright)">ESP32 FIRMWARE &amp; WEBSERIAL REAL-TIME ORIGIN LOGGING:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+      <br><p><strong>ESP32 FIRMWARE &amp; WEBSERIAL REAL-TIME ORIGIN LOGGING:</strong></p>
+      <ul>
         <li><strong>RelayManager</strong> — Active-LOW relay outputs with safe boot defaults (all relays initialize OFF).</li>
         <li><strong>SwitchManager</strong> — Real-time debounced polling and edge detection for physical switches.</li>
         <li><strong>PIRManager</strong> — Autonomous motion-event handling, retrigger logic, and auto-off timers.</li>
@@ -41,51 +41,7 @@ const allProjects = [
       </ul>`
   },
   {
-    id: 'hw1',
-    num: '02',
-    category: 'Robotics & Automation',
-    title: 'Multi-Robot Warehouse Navigation',
-    meta: 'Autonomous Navigation / RFID Grid / BFS Pathfinding / IMU',
-    thumbnail: '/hw1_1.png',
-    images: ['/hw1_1.png'],
-    stack: ['RFID', 'IMU', 'Ultrasonic Sensors', 'Wheel Encoders', 'BFS Algorithm', 'Embedded Systems'],
-    modalBody: `<p>A comprehensive warehouse automation system currently in active development, aimed at streamlining logistics and reducing manual labor. The system features custom-built robots capable of autonomous navigation across a shared warehouse environment, avoiding dynamic obstacles and finding the most efficient routes.</p>
-      <p>The architecture involves a central server running a custom BFS-based pathfinding algorithm that coordinates multiple robots in real-time, preventing deadlocks and collisions.</p>
-      
-      <br><p><strong style="color:var(--accent-bright)">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>RFID Localization Grid</strong> — Precision indoor positioning without GPS using embedded floor tags.</li>
-        <li><strong>IMU-Assisted Heading Tracking</strong> — Directional stability to maintain accurate heading over long distances.</li>
-        <li><strong>Dynamic Obstacle Detection</strong> — Array of ultrasonic sensors for real-time collision avoidance.</li>
-        <li><strong>Wheel-Encoder Precision Movement</strong> — Closed-loop odometry feedback for precise millimeter-level movements.</li>
-        <li><strong>Centralized BFS Route Optimization</strong> — Central server for multi-agent coordination and collision-free routing.</li>
-      </ul>`
-  },
-  {
-    id: 'hw2',
-    num: '03',
-    category: 'Robotics & Security',
-    title: 'Autonomous Secure Delivery Bot',
-    meta: 'Biometric Access / Obstacle Avoidance / MPU6050 IMU',
-    postUrl: 'https://www.linkedin.com/posts/ajith-kumar-choudoju-37181a2b7_hackathon-rampagev26-robotics-activity-7438813219198103554-OhpW',
-    thumbnail: '/1_autobot.jpeg',
-    images: ['/1_autobot.jpeg', '/2_autobot.jpeg', '/3_autobot.jpeg'],
-    stack: ['Arduino', 'Fingerprint Sensor', 'Bluetooth Module', 'Robotics', 'C++', 'L298N'],
-    modalBody: `<p>A secure autonomous delivery robot developed to automate package transportation in warehouses, campuses, and controlled-access environments. Designed to reduce manual intervention while ensuring that delivered packages remain strictly accessible only to authenticated recipients.</p>
-      <p>Security is guaranteed through an integrated <strong>fingerprint authentication module</strong> that electronically locks the storage compartment until a registered user is verified, preventing unauthorized tampering during transit.</p>
-      
-      <br><p><strong style="color:var(--accent-bright)">KEY FEATURES &amp; ARCHITECTURE:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>Autonomous Indoor Navigation</strong> — Ultrasonic sensor array detecting and navigating around obstacles.</li>
-        <li><strong>MPU6050 IMU Orientation</strong> — Continuous gyro and accelerometer feedback for directional stability.</li>
-        <li><strong>Fingerprint Security Lock</strong> — Electronic lock mechanism released exclusively upon authorized biometric scan.</li>
-        <li><strong>Bluetooth Manual Override</strong> — Remote wireless control for maintenance, testing, and emergency handling.</li>
-        <li><strong>Differential Drive Chassis</strong> — Powered by dual high-torque DC geared motors and an L298N dual H-bridge motor driver.</li>
-      </ul>`
-  },
-  {
     id: 'hw5',
-    num: '04',
     category: 'PCB Design & Hardware',
     title: 'Smart Home — 4-Channel Relay PCB',
     meta: 'Altium Designer / 4-Layer PCB / ESP32 / mmWave Radar / Isolated AC-DC',
@@ -93,30 +49,30 @@ const allProjects = [
     thumbnail: '/pcb/pcb_1.jpg',
     images: ['/pcb/pcb_1.jpg', '/pcb/pcb_2.jpg', '/pcb/pcb_3.jpg', '/pcb/pcb_4.jpg', '/pcb/pcb_5.jpg', '/pcb/pcb_6.jpg', '/pcb/pcb_7.jpg'],
     stack: ['Altium Designer', 'ESP32-WROOM-32D', 'ULN2803A', 'MCP23017', 'HLK-LD2410C', 'SHT31', 'HLK-10M05', 'PIR Sensor', 'OLED Display', '4-Layer PCB'],
-    modalBody: `<p style="font-style:italic;color:#a1a1aa;font-size:0.92rem;border-left:3px solid var(--accent-bright);padding-left:0.85rem;margin-bottom:1.25rem;line-height:1.7">Custom 4-layer PCB controller for retrofit smart home automation &mdash; ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
+    modalBody: `<p>Custom 4-layer PCB controller for retrofit smart home automation &mdash; ESP32, relays, mmWave presence detection &amp; environmental sensing, designed in Altium Designer.</p>
 
       <p>This project began as a hobbyist smart home build and has evolved into a fully custom-designed, production-oriented PCB system. Developed end-to-end &mdash; from system architecture and component selection, through schematic capture, all the way to a complete 4-layer PCB layout in <strong>Altium Designer</strong>.</p>
 
-      <br><p><strong style="color:var(--accent-bright)">&#10024; FEATURES:</strong></p>
-      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
+      <br><p><strong>&#10024; FEATURES:</strong></p>
+      <table>
         <tbody>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa;width:42%">&#9889; Retrofit-friendly</td><td style="padding:0.4rem 0.6rem">Works with existing electrical installations</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128268; Relay control</td><td style="padding:0.4rem 0.6rem">Controls lights, fans, and appliances</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#127917; Physical switches</td><td style="padding:0.4rem 0.6rem">Wall switches remain fully functional</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128100; Presence detection</td><td style="padding:0.4rem 0.6rem">mmWave radar (HLK-LD2410C)</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#127777; Environmental sensing</td><td style="padding:0.4rem 0.6rem">Temperature &amp; humidity (SHT31)</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128694; Motion detection</td><td style="padding:0.4rem 0.6rem">PIR sensor input</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128421; Local display</td><td style="padding:0.4rem 0.6rem">OLED status screen</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128225; Wireless</td><td style="padding:0.4rem 0.6rem">ESP32-based Wi-Fi connectivity</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#9729; IoT ready</td><td style="padding:0.4rem 0.6rem">Dashboard &amp; cloud integration capable</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128737; Isolation</td><td style="padding:0.4rem 0.6rem">Dedicated mains and SELV separation</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128267; On-board PSU</td><td style="padding:0.4rem 0.6rem">Isolated AC-to-DC power supply</td></tr>
-          <tr><td style="padding:0.4rem 0.6rem;color:#a1a1aa">&#128208; 4-Layer PCB</td><td style="padding:0.4rem 0.6rem">Custom stackup with production-ready design</td></tr>
+          <tr><td>&#9889; Retrofit-friendly</td><td>Works with existing electrical installations</td></tr>
+          <tr><td>&#128268; Relay control</td><td>Controls lights, fans, and appliances</td></tr>
+          <tr><td>&#127917; Physical switches</td><td>Wall switches remain fully functional</td></tr>
+          <tr><td>&#128100; Presence detection</td><td>mmWave radar (HLK-LD2410C)</td></tr>
+          <tr><td>&#127777; Environmental sensing</td><td>Temperature &amp; humidity (SHT31)</td></tr>
+          <tr><td>&#128694; Motion detection</td><td>PIR sensor input</td></tr>
+          <tr><td>&#128421; Local display</td><td>OLED status screen</td></tr>
+          <tr><td>&#128225; Wireless</td><td>ESP32-based Wi-Fi connectivity</td></tr>
+          <tr><td>&#9729; IoT ready</td><td>Dashboard &amp; cloud integration capable</td></tr>
+          <tr><td>&#128737; Isolation</td><td>Dedicated mains and SELV separation</td></tr>
+          <tr><td>&#128267; On-board PSU</td><td>Isolated AC-to-DC power supply</td></tr>
+          <tr><td>&#128208; 4-Layer PCB</td><td>Custom stackup with production-ready design</td></tr>
         </tbody>
       </table>
 
-      <br><p><strong style="color:var(--accent-bright)">&#129504; SYSTEM ARCHITECTURE:</strong></p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:1rem;font-size:0.7rem;line-height:1.6;overflow-x:auto;color:#d4d4d8;font-family:monospace">AC MAINS (230V)
+      <br><p><strong>&#129504; SYSTEM ARCHITECTURE:</strong></p>
+      <pre>AC MAINS (230V)
   |
   Protection &amp; Filter
   |
@@ -133,8 +89,8 @@ ESP32 (Main Controller)
   |------- SHT31 (I2C) ----- Temp &amp; Humidity
   |------- OLED (I2C) ------ Local Display</pre>
 
-      <br><p><strong style="color:var(--accent-bright)">&#128299; HARDWARE:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+      <br><p><strong>&#128299; HARDWARE:</strong></p>
+      <ul>
         <li><strong>ESP32-WROOM-32D</strong> &mdash; Main controller: Wi-Fi, relay switching, I&sup2;C / UART peripherals, and local automation logic.</li>
         <li><strong>ULN2803A Relay Driver</strong> &mdash; Darlington array drives 4 relay coils with integrated flyback suppression, keeping coil currents off ESP32 GPIOs.</li>
         <li><strong>MCP23017 GPIO Expander</strong> &mdash; I&sup2;C expander for up to 6 physical wall-switch inputs; fully <strong>interrupt-driven</strong> &mdash; no continuous polling.</li>
@@ -143,42 +99,42 @@ ESP32 (Main Controller)
         <li><strong>PIR Sensor</strong> &mdash; Secondary motion detection channel for supplementary automation triggers.</li>
       </ul>
 
-      <br><p><strong style="color:var(--accent-bright)">&#128268; INTERFACES:</strong></p>
-      <p style="font-size:0.8rem;color:#a1a1aa;margin-bottom:0.25rem">I&sup2;C Bus</p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">ESP32 GPIO21 &gt; SDA
+      <br><p><strong>&#128268; INTERFACES:</strong></p>
+      <p>I&sup2;C Bus</p>
+      <pre>ESP32 GPIO21 &gt; SDA
 ESP32 GPIO22 &gt; SCL
 Peripherals: MCP23017 | SHT31 | OLED Display</pre>
-      <p style="font-size:0.8rem;color:#a1a1aa;margin:0.75rem 0 0.25rem">LD2410C UART</p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">LD2410C TX &gt; ESP32 GPIO16 (RX)
+      <p>LD2410C UART</p>
+      <pre>LD2410C TX &gt; ESP32 GPIO16 (RX)
 LD2410C RX &gt; ESP32 GPIO17 (TX)</pre>
-      <p style="font-size:0.8rem;color:#a1a1aa;margin:0.75rem 0 0.25rem">Relay Outputs</p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.7;color:#d4d4d8;font-family:monospace">ESP32 GPIO25 &gt; ULN2803A &gt; Relay 1
+      <p>Relay Outputs</p>
+      <pre>ESP32 GPIO25 &gt; ULN2803A &gt; Relay 1
 ESP32 GPIO26 &gt; ULN2803A &gt; Relay 2
 ESP32 GPIO27 &gt; ULN2803A &gt; Relay 3
 ESP32 GPIO33 &gt; ULN2803A &gt; Relay 4</pre>
 
-      <br><p><strong style="color:var(--accent-bright)">&#127959; PCB LAYER STACKUP:</strong></p>
-      <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-top:0.5rem">
-        <thead><tr style="border-bottom:1px solid rgba(255,36,66,0.4)"><th style="padding:0.4rem 0.6rem;text-align:left;color:var(--accent-bright);font-weight:700">Layer</th><th style="padding:0.4rem 0.6rem;text-align:left;color:var(--accent-bright);font-weight:700">Function</th></tr></thead>
+      <br><p><strong>&#127959; PCB LAYER STACKUP:</strong></p>
+      <table>
+        <thead><tr><th>Layer</th><th>Function</th></tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L1 &mdash; Top</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Component placement, signal routing, mains routing</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L2</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Solid GND copper pour</td></tr>
-          <tr style="border-bottom:1px solid rgba(255,255,255,0.07)"><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L3</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Power distribution / low-voltage routing</td></tr>
-          <tr><td style="padding:0.4rem 0.6rem;color:#fff;font-weight:600">L4 &mdash; Bottom</td><td style="padding:0.4rem 0.6rem;color:#a1a1aa">Low-voltage signal routing</td></tr>
+          <tr><td>L1 &mdash; Top</td><td>Component placement, signal routing, mains routing</td></tr>
+          <tr><td>L2</td><td>Solid GND copper pour</td></tr>
+          <tr><td>L3</td><td>Power distribution / low-voltage routing</td></tr>
+          <tr><td>L4 &mdash; Bottom</td><td>Low-voltage signal routing</td></tr>
         </tbody>
       </table>
 
-      <br><p><strong style="color:var(--accent-bright)">&#9889; POWER ARCHITECTURE:</strong></p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">230V AC &gt; Fuse &gt; MOV &gt; X2 Cap &gt; Common-Mode Filter
+      <br><p><strong>&#9889; POWER ARCHITECTURE:</strong></p>
+      <pre>230V AC &gt; Fuse &gt; MOV &gt; X2 Cap &gt; Common-Mode Filter
   |
 HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
   |
 3.3V Buck Converter &gt; +3.3V Rail</pre>
-      <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7;margin-top:0.5rem">Mains section is <strong style="color:#fff">electrically isolated</strong> from SELV circuitry. Low-voltage electronics share a common DC ground on the secondary side only.</p>
+      <p>Mains section is <strong>electrically isolated</strong> from SELV circuitry. Low-voltage electronics share a common DC ground on the secondary side only.</p>
 
-      <br><p><strong style="color:var(--accent-bright)">&#127968; RETROFIT PHILOSOPHY:</strong></p>
-      <p style="font-size:0.82rem;color:#a1a1aa;line-height:1.7">Traditional wall-switch operation is preserved at all times. The controller adds on top:</p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
+      <br><p><strong>&#127968; RETROFIT PHILOSOPHY:</strong></p>
+      <p>Traditional wall-switch operation is preserved at all times. The controller adds on top:</p>
+      <ul>
         <li>Remote and voice control</li>
         <li>Presence and occupancy-based automation</li>
         <li>Environmental condition-based logic</li>
@@ -186,30 +142,73 @@ HLK-10M05 (Isolated AC/DC) &gt; +5V Rail
         <li>Future IoT platform integrations</li>
       </ul>
 
-      <br><p><strong style="color:var(--accent-bright)">&#128295; DESIGN WORKFLOW:</strong></p>
-      <pre style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:0.75rem 1rem;font-size:0.75rem;line-height:1.9;color:#d4d4d8;font-family:monospace">Concept &gt; System Architecture &gt; Component Selection
+      <br><p><strong>&#128295; DESIGN WORKFLOW:</strong></p>
+      <pre>Concept &gt; System Architecture &gt; Component Selection
 &gt; Schematic Capture &gt; Footprint Selection &amp; Creation
 &gt; PCB Stackup &amp; Design Rules &gt; Component Placement &gt; Routing
 &gt; Copper Pour &amp; Ground Planes &gt; DRC &amp; Clearance Verification
 &gt; Silkscreen Cleanup &gt; Final PCB Output &amp; Gerber Generation</pre>
 
-      <br><p><strong style="color:var(--accent-bright)">&#128679; CURRENT STATUS:</strong></p>
-      <p style="font-size:0.8rem;font-weight:700;color:#22c55e;margin-bottom:0.5rem">PCB Design &mdash; Complete</p>
-      <ul style="margin-top:0.25rem;padding-left:1.2rem;line-height:2;font-size:0.82rem">
-        <li style="color:#22c55e">&#9989; System architecture &amp; component selection</li>
-        <li style="color:#22c55e">&#9989; Schematic &amp; custom footprints</li>
-        <li style="color:#22c55e">&#9989; PCB stackup, routing &amp; copper pours</li>
-        <li style="color:#22c55e">&#9989; Mains/SELV isolation verified</li>
-        <li style="color:#22c55e">&#9989; DRC passed &amp; Gerber files generated</li>
-        <li style="color:#a1a1aa">&#9744; PCB fabrication &amp; assembly</li>
-        <li style="color:#a1a1aa">&#9744; Hardware bring-up &amp; firmware development</li>
-        <li style="color:#a1a1aa">&#9744; Sensor validation &amp; relay testing</li>
-        <li style="color:#a1a1aa">&#9744; Enclosure design &amp; long-term testing</li>
+      <br><p><strong>&#128679; CURRENT STATUS:</strong></p>
+      <p>PCB Design &mdash; Complete</p>
+      <ul>
+        <li>&#9989; System architecture &amp; component selection</li>
+        <li>&#9989; Schematic &amp; custom footprints</li>
+        <li>&#9989; PCB stackup, routing &amp; copper pours</li>
+        <li>&#9989; Mains/SELV isolation verified</li>
+        <li>&#9989; DRC passed &amp; Gerber files generated</li>
+        <li>&#9744; PCB fabrication &amp; assembly</li>
+        <li>&#9744; Hardware bring-up &amp; firmware development</li>
+        <li>&#9744; Sensor validation &amp; relay testing</li>
+        <li>&#9744; Enclosure design &amp; long-term testing</li>
       </ul>
 
-      <br><p style="font-size:0.79rem;color:#71717a;border-top:1px solid rgba(255,255,255,0.07);padding-top:1rem;line-height:1.7">&#9888;&#65039; <strong style="color:#facc15">Safety Notice:</strong> This project involves 230V AC mains voltage. Any work on the mains section must follow appropriate electrical safety procedures. This is a development project and should not be treated as a certified commercial product without full safety, EMC, and regulatory validation.</p>`
+      <br><p>&#9888;&#65039; <strong>Safety Notice:</strong> This project involves 230V AC mains voltage. Any work on the mains section must follow appropriate electrical safety procedures. This is a development project and should not be treated as a certified commercial product without full safety, EMC, and regulatory validation.</p>`
+  },
+  {
+    id: 'hw1',
+    category: 'Robotics & Automation',
+    title: 'Multi-Robot Warehouse Navigation',
+    meta: 'Autonomous Navigation / RFID Grid / BFS Pathfinding / IMU',
+    thumbnail: '/hw1_1.png',
+    images: ['/hw1_1.png'],
+    stack: ['RFID', 'IMU', 'Ultrasonic Sensors', 'Wheel Encoders', 'BFS Algorithm', 'Embedded Systems'],
+    modalBody: `<p>A comprehensive warehouse automation system currently in active development, aimed at streamlining logistics and reducing manual labor. The system features custom-built robots capable of autonomous navigation across a shared warehouse environment, avoiding dynamic obstacles and finding the most efficient routes.</p>
+      <p>The architecture involves a central server running a custom BFS-based pathfinding algorithm that coordinates multiple robots in real-time, preventing deadlocks and collisions.</p>
+
+      <br><p><strong>KEY FEATURES &amp; ARCHITECTURE:</strong></p>
+      <ul>
+        <li><strong>RFID Localization Grid</strong> — Precision indoor positioning without GPS using embedded floor tags.</li>
+        <li><strong>IMU-Assisted Heading Tracking</strong> — Directional stability to maintain accurate heading over long distances.</li>
+        <li><strong>Dynamic Obstacle Detection</strong> — Array of ultrasonic sensors for real-time collision avoidance.</li>
+        <li><strong>Wheel-Encoder Precision Movement</strong> — Closed-loop odometry feedback for precise millimeter-level movements.</li>
+        <li><strong>Centralized BFS Route Optimization</strong> — Central server for multi-agent coordination and collision-free routing.</li>
+      </ul>`
+  },
+  {
+    id: 'hw2',
+    category: 'Robotics & Security',
+    title: 'Autonomous Secure Delivery Bot',
+    meta: 'Biometric Access / Obstacle Avoidance / MPU6050 IMU',
+    postUrl: 'https://www.linkedin.com/posts/ajith-kumar-choudoju-37181a2b7_hackathon-rampagev26-robotics-activity-7438813219198103554-OhpW',
+    thumbnail: '/1_autobot.jpeg',
+    images: ['/1_autobot.jpeg', '/2_autobot.jpeg'],
+    stack: ['Arduino', 'Fingerprint Sensor', 'Bluetooth Module', 'Robotics', 'C++', 'L298N'],
+    modalBody: `<p>A secure autonomous delivery robot developed to automate package transportation in warehouses, campuses, and controlled-access environments. Designed to reduce manual intervention while ensuring that delivered packages remain strictly accessible only to authenticated recipients.</p>
+      <p>Security is guaranteed through an integrated <strong>fingerprint authentication module</strong> that electronically locks the storage compartment until a registered user is verified, preventing unauthorized tampering during transit.</p>
+
+      <br><p><strong>KEY FEATURES &amp; ARCHITECTURE:</strong></p>
+      <ul>
+        <li><strong>Autonomous Indoor Navigation</strong> — Ultrasonic sensor array detecting and navigating around obstacles.</li>
+        <li><strong>MPU6050 IMU Orientation</strong> — Continuous gyro and accelerometer feedback for directional stability.</li>
+        <li><strong>Fingerprint Security Lock</strong> — Electronic lock mechanism released exclusively upon authorized biometric scan.</li>
+        <li><strong>Bluetooth Manual Override</strong> — Remote wireless control for maintenance, testing, and emergency handling.</li>
+        <li><strong>Differential Drive Chassis</strong> — Powered by dual high-torque DC geared motors and an L298N dual H-bridge motor driver.</li>
+      </ul>`
   }
 ];
+
+const featuredProjects = [allProjects[1], allProjects[0], ...allProjects.slice(2)];
 
 const educationData = [
   {
@@ -321,10 +320,7 @@ export default function Home() {
           <div className="actions"><a className="primary" href="#projects">Explore projects</a><a className="secondary" href="/resume.pdf" download>Download résumé</a></div>
           <p className="location">Hyderabad, India <b>·</b> ECE at SNIST</p>
         </div>
-        <button className="feature" onClick={() => setModalData(allProjects.find(p => p.id === 'hw5'))} aria-haspopup="dialog" aria-label="View four-channel relay PCB project">
-          <div className="drawing"><span className="drawing-label">PCB / TOP VIEW</span><img src="/pcb/relay-board.webp" width="877" height="297" alt="Four-channel relay controller layout"/><span className="drawing-note">ESP32 · 4-LAYER BOARD</span></div>
-          <div className="caption"><div><span className="eyebrow">Featured design</span><h2>Four-channel relay PCB</h2></div><span className="plus" aria-hidden="true">+</span></div>
-        </button>
+        <ProjectDeck projects={featuredProjects} onOpen={setModalData} />
       </section>
       <section className="section" id="projects"><h2>Selected projects</h2>
         <div className="projects">{allProjects.map(proj => (
@@ -373,40 +369,12 @@ export default function Home() {
               />
             )}
 
-            {modalData.postUrl && (
-              <div style={{ padding: '0.85rem 2rem', background: 'var(--accent-tint)', borderBottom: '1px solid var(--border-accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600' }}>
-                  Live Demo &amp; Discussion on LinkedIn:
-                </span>
-                <a
-                  href={modalData.postUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-post-link"
-                >
-                  <span className="post-icon">in</span>
-                  <span>View project post</span>
-                </a>
+            {(modalData.postUrl || modalData.gitUrl) && (
+              <div className="modal-links">
+                {modalData.postUrl && <a href={modalData.postUrl} target="_blank" rel="noreferrer">View project on LinkedIn</a>}
+                {modalData.gitUrl && <a href={modalData.gitUrl} target="_blank" rel="noreferrer">View design files on GitHub</a>}
               </div>
             )}
-
-            {modalData.gitUrl && (
-              <div style={{ padding: '0.85rem 2rem', background: 'var(--accent-tint)', borderBottom: '1px solid var(--border-accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.82rem', color: '#ffffff', fontWeight: '600' }}>
-                  Source & Design Files on GitHub:
-                </span>
-                <a
-                  href={modalData.gitUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-post-link"
-                >
-                  <span className="post-icon">gh</span>
-                  <span>View design files</span>
-                </a>
-              </div>
-            )}
-
             <div
               className="modal-body"
               dangerouslySetInnerHTML={{ __html: modalData.modalBody }}

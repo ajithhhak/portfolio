@@ -30,7 +30,7 @@ export default function ImageCarousel({ images, alt, variant = 'card' }) {
       onClick={(e) => e.stopPropagation()}
     >
       {/* Image Track */}
-      <div className="carousel-viewport" style={{ height, background: '#09090c' }}>
+      <div className="carousel-viewport" style={{ height }}>
         <div
           className="carousel-track"
           style={{
@@ -42,7 +42,7 @@ export default function ImageCarousel({ images, alt, variant = 'card' }) {
             <div
               key={i}
               className="carousel-slide"
-              style={{ width: `${100 / images.length}%`, height, background: '#09090c' }}
+              style={{ width: `${100 / images.length}%`, height }}
             >
               <img
                 src={src}
@@ -52,7 +52,7 @@ export default function ImageCarousel({ images, alt, variant = 'card' }) {
                   height,
                   objectFit: isModal ? 'contain' : 'cover',
                   display: 'block',
-                  background: '#09090c',
+
                 }}
               />
             </div>
