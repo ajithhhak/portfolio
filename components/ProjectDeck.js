@@ -3,49 +3,79 @@
 import { useRef, useState } from 'react';
 
 export default function ProjectDeck({ projects, onOpen }) {
-  const track = useRef(null);
-  const dragStart = useRef(null);
-  const suppressClick = useRef(false);
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [offset, setOffset] = useState(0);
+  const gesture = useRef(null);
+  const suppressClick = useRef(false);
+  const count = projects.length;
+  const next = (active + direction + count) % count;
 
-  function move(direction) {
-    const next = (active + direction + projects.length) % projects.length;
-    track.current.scrollTo({ left: next * track.current.clientWidth });
+  function move(step) {
+    if (direction || count < 2) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setActive((active + step + count) % count);
+      setOffset(0);
+      return;
+    }
+    setDirection(step);
+  }
+
+  function beginDrag(event) {
+    if (direction || !event.isPrimary || event.button !== 0) return;
+    suppressClick.current = false;
+    gesture.current = { id: event.pointerId, x: event.clientX };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function endDrag(event) {
+    if (gesture.current?.id !== event.pointerId) return;
+    const distance = event.clientX - gesture.current.x;
+    gesture.current = null;
+    suppressClick.current = Math.abs(distance) > 8;
+    if (Math.abs(distance) >= 40) move(distance < 0 ? 1 : -1);
+    else setOffset(0);
   }
 
   return (
     <section className="deck" aria-label="Featured projects" aria-roledescription="carousel">
       <div className="deck-stack">
-        <div className="deck-track" ref={track}
-          onScroll={({ currentTarget }) => {
-            const index = Math.round(currentTarget.scrollLeft / currentTarget.clientWidth);
-            setActive(Math.max(0, Math.min(projects.length - 1, index)));
-          }}
-          onPointerDown={event => {
-            suppressClick.current = false;
-            if (event.pointerType !== 'mouse' || event.button !== 0) return;
-            event.target.closest('button')?.setPointerCapture(event.pointerId);
-            dragStart.current = event.clientX;
-          }}
-          onPointerCancel={() => { dragStart.current = null; }}
-          onPointerUp={event => {
-            if (dragStart.current === null) return;
-            const distance = event.clientX - dragStart.current;
-            dragStart.current = null;
-            if (Math.abs(distance) < 36) return;
-            suppressClick.current = true;
-            move(distance < 0 ? 1 : -1);
-          }}
-          onClickCapture={event => {
-            if (suppressClick.current && event.detail > 0) event.stopPropagation();
-            suppressClick.current = false;
-          }}
-          onDragStart={event => event.preventDefault()}>
-          {projects.map(project => {
-            const isBoard = project.id === 'hw5';
-            return (
-              <button key={project.id} className="feature" aria-haspopup="dialog"
-                aria-label={`Open ${project.title}`} onClick={() => onOpen(project)}>
+        {projects.map((project, index) => {
+          const front = index === active;
+          const depth = (index - next + count) % count;
+          const isBoard = project.id === 'hw5';
+          return (
+            <button key={project.id} className="feature deck-card"
+              data-departing={front && direction ? 'true' : undefined}
+              data-dragging={front && offset && !direction ? 'true' : undefined}
+              aria-haspopup="dialog" disabled={!front} aria-hidden={!front}
+              aria-label={`Open ${project.title}`}
+              style={{
+                zIndex: front ? count + 1 : count - depth,
+                '--depth': Math.min(depth, 2),
+                '--drag': `${front ? offset : 0}px`,
+                '--tilt': `${front ? offset / 16 : 0}deg`,
+                '--side': -direction
+              }}
+              onPointerDown={beginDrag}
+              onPointerMove={event => {
+                if (gesture.current?.id === event.pointerId) {
+                  setOffset(Math.max(-120, Math.min(120, event.clientX - gesture.current.x)));
+                }
+              }}
+              onPointerUp={endDrag}
+              onPointerCancel={() => { gesture.current = null; setOffset(0); }}
+              onDragStart={event => event.preventDefault()}
+              onAnimationEnd={event => {
+                if (event.target !== event.currentTarget || !front || !direction) return;
+                setActive(next);
+                setDirection(0);
+                setOffset(0);
+              }}
+              onClick={event => {
+                if (!direction && (!event.detail || !suppressClick.current)) onOpen(project);
+                suppressClick.current = false;
+              }}>
                 {isBoard ? (
                   <div className="drawing">
                     <span className="drawing-label">PCB / Top view</span>
@@ -58,10 +88,9 @@ export default function ProjectDeck({ projects, onOpen }) {
                     <h2>{isBoard ? 'Four-channel relay PCB' : project.title}</h2></div>
                   <span className="plus" aria-hidden="true">+</span>
                 </div>
-              </button>
-            );
-          })}
-        </div>
+            </button>
+          );
+        })}
       </div>
       <div className="deck-controls">
         <span aria-live="polite">Featured project {active + 1} of {projects.length}</span>
