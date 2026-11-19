@@ -279,9 +279,7 @@ const hardwareSkills = [
 ];
 
 const softwareSkills = [
-  'C / C++', 'Python', 'Java', 'SQL',
-  'JavaScript', 'Next.js', 'React', 'Node.js',
-  'Firebase RTDB', 'Telegram Bot API', 'Git & GitHub',
+  'C / C++', 'Python', 'Java',
   'Prompt Engineering'
 ];
 
