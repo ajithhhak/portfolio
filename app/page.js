@@ -84,47 +84,8 @@ const allProjects = [
       </ul>`
   },
   {
-    id: 'sw1',
-    num: '04',
-    category: 'Full-Stack Software',
-    title: 'HabitSync',
-    meta: 'Next.js / Tailwind CSS / MongoDB / Framer Motion',
-    thumbnail: '/1_habitsync.png',
-    images: ['/1_habitsync.png', '/2_habitsync.jpeg', '/3_habitsync.jpeg', '/4_habitsync.png', '/5_habitsync.png'],
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'MongoDB', 'Framer Motion', 'Node.js'],
-    modalBody: `<p>A modern, highly interactive Habit Tracker built from the ground up focusing on performance, fluid UI/UX, and daily habit consistency.</p>
-      <p>Features optimistic UI updates, dynamic GitHub-style contribution heatmaps, smooth micro-interactions, and a custom OTP passwordless authentication flow.</p>
-      
-      <br><p><strong style="color:var(--accent-bright)">TECHNICAL HIGHLIGHTS:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>Interactive Heatmap Grid</strong> — Zero-latency updates calculated immediately on the client before syncing with MongoDB.</li>
-        <li><strong>Streak Calculations</strong> — Real-time tracking of current and longest streaks with completion metrics.</li>
-        <li><strong>Micro-Animations</strong> — Smooth state transitions, SVG progress indicators, and celebratory completion cues.</li>
-        <li><strong>Secure Passwordless Auth</strong> — Email OTP verification handled by serverless Next.js API routes.</li>
-      </ul>`
-  },
-  {
-    id: 'sw2',
-    num: '05',
-    category: 'Serverless Automation',
-    title: 'Visitor Management System',
-    meta: 'Telegram Bot API / Upstash Redis / Next.js / PWA',
-    thumbnail: '/1_tele.png',
-    images: ['/1_tele.png', '/2_tele.png', '/3_tele.png', '/4_tele.png', '/5_tele.png', '/6_tele.png'],
-    stack: ['Telegram Bot API', 'Vercel', 'Upstash Redis', 'Next.js', 'PWA', 'JsBarcode', 'ZXing'],
-    modalBody: `<p>An innovative serverless visitor management platform enabling friction-free visitor check-in, multi-tier approval workflows, dynamic barcode identification, and automated access control—operated entirely through a Telegram bot interface.</p>
-      
-      <br><p><strong style="color:var(--accent-bright)">KEY INNOVATIONS:</strong></p>
-      <ul style="margin-top:0.5rem;padding-left:1.2rem;line-height:1.9">
-        <li><strong>Dynamic Barcode Verification</strong> — Generates Code128 barcodes scanned directly via camera with ZXing.</li>
-        <li><strong>Telegram Bot Interface</strong> — Host approval / rejection buttons integrated into Telegram with instantaneous webhook response.</li>
-        <li><strong>TTL-Based Security Tokens</strong> — Temporary visitor access passes auto-expire using Upstash Redis key expiration.</li>
-        <li><strong>PWA Scanner</strong> — Lightweight progressive web application interface for gate security officers.</li>
-      </ul>`
-  },
-  {
     id: 'hw5',
-    num: '06',
+    num: '04',
     category: 'PCB Design & Hardware',
     title: 'Smart Home — 4-Channel Relay PCB',
     meta: 'Altium Designer / 4-Layer PCB / ESP32 / mmWave Radar / Isolated AC-DC',
